@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +9,12 @@ import { departments } from "@/data/departments";
 import { doctors } from "@/data/doctors";
 import { services } from "@/data/services";
 import { SITE_NAME, SITE_TAGLINE, PROMO_CONFIG } from "@/lib/constants";
+import {
+  CalendarCheck, Sparkles, MapPin, ShoppingBag,
+  Star, Phone, ArrowRight, Heart, Shield, Zap, Users,
+  Eye, Scissors, Syringe, Flame, Droplets, ScanFace,
+  Mail,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} | ${SITE_TAGLINE}`,
@@ -37,50 +44,74 @@ export default function HomePage() {
       )}
 
       {/* ── Hero Section ── */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-background to-secondary/5 py-20 lg:py-28 overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1920&q=80"
+          alt="Premium skin care treatment"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <Badge className="mb-4 bg-secondary/20 text-secondary border-secondary/30">
-              ✨ Premium Skin Care Clinic
+          <div className="max-w-2xl">
+            <Badge className="mb-4 bg-white/15 text-white border-white/25 backdrop-blur-sm">
+              <Sparkles className="w-3.5 h-3.5 mr-1.5" /> Premium Skin Care Clinic
             </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
               Goddess of{" "}
-              <span className="text-primary">Radiant Health</span>{" "}
+              <span className="text-pink-300">Radiant Health</span>{" "}
               <span className="text-secondary">&</span>{" "}
-              <span className="text-primary">Beauty</span>
+              <span className="text-pink-300">Beauty</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
+            <p className="mt-6 text-lg text-white/85 max-w-xl leading-relaxed">
               Daily skin care routine for beautiful & youthful skin. AEGLE is your
               premium destination for advanced dermatological treatments, cosmetic
               procedures, and luxury skin care — crafted by expert dermatologists.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/appointment">
-                <Button size="lg" className="bg-primary hover:bg-primary-dark">
-                  Book Consultation
+                <Button size="lg" className="bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/30">
+                  <CalendarCheck className="w-4 h-4 mr-2" /> Book Consultation
                 </Button>
               </Link>
               <Link href="/treatments">
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5">
-                  Explore Treatments
+                <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 backdrop-blur-sm">
+                  Explore Treatments <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
               <Link href="/shop">
-                <Button size="lg" variant="ghost" className="text-secondary hover:bg-secondary/5">
-                  🛍️ Shop Products
+                <Button size="lg" variant="ghost" className="text-secondary hover:bg-secondary/10">
+                  <ShoppingBag className="w-4 h-4 mr-2" /> Shop Products
                 </Button>
               </Link>
             </div>
             {PROMO_CONFIG.enabled && (
-              <div className="mt-4 inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 rounded-full px-4 py-1.5 text-sm font-semibold text-secondary">
-                🎉 {PROMO_CONFIG.badgeText} on all treatments
+              <div className="mt-5 inline-flex items-center gap-2 bg-secondary/20 border border-secondary/30 rounded-full px-4 py-1.5 text-sm font-semibold text-secondary backdrop-blur-sm">
+                <Zap className="w-3.5 h-3.5" /> {PROMO_CONFIG.badgeText} on all treatments
               </div>
             )}
           </div>
         </div>
-        <div className="absolute top-10 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-40 w-48 h-48 bg-secondary/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 right-20 w-32 h-32 bg-accent/5 rounded-full blur-2xl" />
+
+        {/* Floating Stats */}
+        <div className="absolute bottom-8 right-8 hidden lg:flex flex-col gap-3">
+          {[
+            { value: "97+", label: "Treatments", icon: Sparkles },
+            { value: "10K+", label: "Happy Clients", icon: Heart },
+            { value: "15+", label: "Years", icon: Shield },
+          ].map((s) => (
+            <div key={s.label} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-5 py-3 text-white text-center min-w-[120px]">
+              <s.icon className="w-4 h-4 mx-auto mb-1 text-secondary" />
+              <div className="text-xl font-bold">{s.value}</div>
+              <div className="text-xs text-white/70">{s.label}</div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ── Quick Action Cards ── */}
@@ -88,15 +119,15 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { icon: "📅", label: "Book Consultation", href: "/appointment" },
-              { icon: "💆", label: "Find Treatment", href: "/treatments" },
-              { icon: "📍", label: "Our Locations", href: "/locations" },
-              { icon: "🛍️", label: "Shop Products", href: "/shop" },
+              { icon: CalendarCheck, label: "Book Consultation", href: "/appointment", color: "text-primary" },
+              { icon: Sparkles, label: "Find Treatment", href: "/treatments", color: "text-pink-500" },
+              { icon: MapPin, label: "Our Locations", href: "/locations", color: "text-secondary" },
+              { icon: ShoppingBag, label: "Shop Products", href: "/shop", color: "text-rose-500" },
             ].map((action) => (
               <Link key={action.label} href={action.href}>
-                <Card className="text-center p-4 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer border-primary/10 hover:border-primary/30">
+                <Card className="text-center p-4 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer border-primary/10 hover:border-primary/30 bg-card/95 backdrop-blur-sm">
                   <CardContent className="p-0">
-                    <span className="text-3xl block mb-2">{action.icon}</span>
+                    <action.icon className={`w-7 h-7 mx-auto mb-2 ${action.color}`} />
                     <span className="text-sm font-medium text-foreground">
                       {action.label}
                     </span>
@@ -157,12 +188,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
-              { value: "97+", label: "Treatments" },
-              { value: "10,000+", label: "Happy Clients" },
-              { value: "3", label: "Clinic Locations" },
-              { value: "15+", label: "Years Experience" },
+              { value: "97+", label: "Treatments", icon: Sparkles },
+              { value: "10,000+", label: "Happy Clients", icon: Heart },
+              { value: "3", label: "Clinic Locations", icon: MapPin },
+              { value: "15+", label: "Years Experience", icon: Shield },
             ].map((stat) => (
               <div key={stat.label}>
+                <stat.icon className="w-8 h-8 mx-auto mb-3 text-white/60" />
                 <div className="text-4xl lg:text-5xl font-bold mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
                   {stat.value}
                 </div>
@@ -198,14 +230,14 @@ export default function HomePage() {
                       {doc.credentials.join(", ")}
                     </p>
                     <div className="flex items-center justify-center gap-1 mt-3">
-                      <span className="text-yellow-500">★</span>
+                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                       <span className="text-sm font-medium">{doc.rating}</span>
                       <span className="text-xs text-muted-foreground">
                         ({doc.reviewCount} reviews)
                       </span>
                     </div>
-                    <p className="text-xs text-secondary mt-2 font-medium">
-                      📞 {doc.phone}
+                    <p className="text-xs text-secondary mt-2 font-medium flex items-center justify-center gap-1">
+                      <Phone className="w-3 h-3" /> {doc.phone}
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center mt-3">
                       {doc.specialties.slice(0, 3).map((spec) => (
@@ -333,6 +365,7 @@ export default function HomePage() {
       {/* ── Newsletter ── */}
       <section className="py-12 bg-muted/30 border-t border-border">
         <div className="container mx-auto px-4 text-center">
+          <Mail className="w-8 h-8 mx-auto mb-3 text-primary" />
           <h2 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
             Skin Care Tips & Updates
           </h2>
