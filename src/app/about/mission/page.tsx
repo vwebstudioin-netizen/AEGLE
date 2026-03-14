@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -36,6 +37,18 @@ export default function MissionPage() {
 
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto space-y-12">
+          {/* Hero Image */}
+          <div className="relative aspect-[21/9] rounded-2xl overflow-hidden bg-muted">
+            <Image
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200"
+              alt="AEGLE skin care clinic"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+          </div>
+
           {/* Mission */}
           <div className="rounded-2xl border bg-card p-8">
             <h2 className="text-2xl font-bold mb-4">Our Mission</h2>

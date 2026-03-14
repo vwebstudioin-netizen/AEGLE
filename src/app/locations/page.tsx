@@ -3,8 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { locations } from "@/data/locations";
-import { formatTime } from "@/lib/utils";
+import { getLocations } from "@/lib/get-locations";
 import { MapPin, Phone, Ambulance } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -12,7 +11,10 @@ export const metadata: Metadata = {
   description: "Find AEGLE Skin Care Clinic locations near you — main campus, outpatient centers, and urgent care facilities.",
 };
 
-export default function LocationsPage() {
+export const dynamic = "force-dynamic";
+
+export default async function LocationsPage() {
+  const locations = await getLocations();
   return (
     <>
       <PageHero

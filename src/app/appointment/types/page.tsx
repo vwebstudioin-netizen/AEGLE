@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,21 @@ export default function AppointmentTypesPage() {
 
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-5xl mx-auto">
+          {/* Banner Image */}
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl mb-10">
+            <Image
+              src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1600&q=80"
+              alt="AEGLE appointment types and consultation options"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-transparent" />
+            <div className="absolute bottom-6 left-6 text-white">
+              <p className="text-lg font-semibold">Find the Right Visit for You</p>
+              <p className="text-sm text-white/80">From consultations to virtual visits</p>
+            </div>
+          </div>
+
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {types.map((t) => (
               <Card key={t.title} className="h-full">

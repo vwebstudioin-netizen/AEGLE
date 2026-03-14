@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { generalFaqs, billingFaqs } from "@/data/faq";
@@ -19,6 +20,21 @@ export default function FaqPage() {
 
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-4xl space-y-10">
+          {/* Decorative Banner */}
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl">
+            <Image
+              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80"
+              alt="AEGLE skin care products and treatments"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-transparent" />
+            <div className="absolute bottom-6 left-6 text-white">
+              <p className="text-lg font-semibold">Got Questions? We&rsquo;ve Got Answers</p>
+              <p className="text-sm text-white/80">Everything you need to know about AEGLE</p>
+            </div>
+          </div>
+
           <div>
             <h2 className="text-2xl font-bold text-foreground mb-6">General Questions</h2>
             <div className="space-y-4">

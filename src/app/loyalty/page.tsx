@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_NAME } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Award, Crown, Gem, Sparkles, Check } from "lucide-react";
@@ -38,6 +39,23 @@ export default function LoyaltyPage() {
               Join Now — It&apos;s Free
             </Button>
           </Link>
+        </div>
+      </section>
+
+      {/* Lifestyle Banner */}
+      <section className="container mx-auto px-4 py-10">
+        <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl">
+          <Image
+            src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1600&q=80"
+            alt="Luxurious skin care experience at AEGLE"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <p className="text-lg font-semibold">Rewarding Your Glow Journey</p>
+            <p className="text-sm text-white/80">Every treatment brings you closer to exclusive perks</p>
+          </div>
         </div>
       </section>
 

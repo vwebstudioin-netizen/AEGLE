@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -35,6 +36,24 @@ export default function AwardsPage() {
           { label: "Awards" },
         ]}
       />
+
+      {/* Banner */}
+      <section className="container mx-auto px-4 pt-10">
+        <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl">
+          <Image
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80"
+            alt="AEGLE awards and excellence"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <p className="text-lg font-semibold">A Legacy of Excellence</p>
+            <p className="text-sm text-white/80">Recognized by India&rsquo;s top health bodies</p>
+          </div>
+        </div>
+      </section>
 
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">

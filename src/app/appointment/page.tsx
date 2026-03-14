@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,7 +12,11 @@ import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { departments } from "@/data/departments";
 import { doctors } from "@/data/doctors";
-import { locations } from "@/data/locations";
+
+interface LocationItem {
+  id: string;
+  name: string;
+}
 
 type Step = 1 | 2 | 3 | 4;
 
@@ -19,6 +24,14 @@ export default function AppointmentPage() {
   const [step, setStep] = useState<Step>(1);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [formData, setFormData] = useState<Record<string, string>>({});
+  const [locations, setLocations] = useState<LocationItem[]>([]);
+
+  useEffect(() => {
+    fetch("/api/locations")
+      .then((r) => r.json())
+      .then((d) => setLocations(d.locations || []))
+      .catch(() => {});
+  }, []);
 
   function update(field: string, value: string) {
     setFormData((p) => ({ ...p, [field]: value }));
@@ -51,6 +64,20 @@ export default function AppointmentPage() {
 
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-3xl">
+          {/* Image Banner */}
+          <div className="relative aspect-video w-full overflow-hidden rounded-2xl mb-10">
+            <Image
+              src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1200&q=80"
+              alt="Book your skin care appointment at AEGLE"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute bottom-4 left-4 text-white">
+              <p className="font-semibold">Your Skin Transformation Starts Here</p>
+              <p className="text-sm text-white/80">Expert consultation in just a few clicks</p>
+            </div>
+          </div>
           {status === "success" ? (
             <Card>
               <CardContent className="p-8 text-center">

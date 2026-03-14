@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/shared/SectionHeader";
@@ -68,7 +69,16 @@ export default function AboutPage() {
                 clinics in the country.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-4 overflow-hidden">
+              <div className="relative aspect-square rounded-xl overflow-hidden mb-6">
+                <Image
+                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600"
+                  alt="AEGLE Clinic interior"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:1024px) 100vw,50vw"
+                />
+              </div>
               <div className="grid grid-cols-2 gap-6 text-center">
                 {[
                   { value: "98", label: "Years of Service" },

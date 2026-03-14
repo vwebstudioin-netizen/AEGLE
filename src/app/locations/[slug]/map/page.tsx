@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/layout/PageHero";
-import { locations } from "@/data/locations";
+import { getLocationBySlug } from "@/lib/get-locations";
+
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
+  const { locations } = await import("@/data/locations");
   return locations.map((l) => ({ slug: l.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const loc = locations.find((l) => l.slug === slug);
+  const loc = await getLocationBySlug(slug);
   if (!loc) return { title: "Map Not Found" };
   return { title: `${loc.name} — Campus Map`, description: `Interactive campus map for ${loc.name}.` };
 }
 
 export default async function CampusMapPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const loc = locations.find((l) => l.slug === slug);
+  const loc = await getLocationBySlug(slug);
   if (!loc) notFound();
 
   const buildings = [

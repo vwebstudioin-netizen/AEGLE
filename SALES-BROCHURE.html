@@ -8,17 +8,46 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; background: #fff; }
     :root {
-      --primary: #6B21A8;
-      --primary-dark: #581C87;
+      --primary: #BE185D;
+      --primary-dark: #9D174D;
       --accent: #D4AF37;
       --accent-light: #F5D061;
-      --light: #faf8fc;
+      --light: #fdf2f8;
       --muted: #64748b;
       --green: #22c55e;
     }
 
+    /* ── PRICING ── */
+    .pricing { padding: 80px 40px; background: #fff; }
+    .pricing-inner { max-width: 1060px; margin: 0 auto; text-align: center; }
+    .pricing h2 { font-size: 34px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+    .pricing-sub { font-size: 16px; color: var(--muted); margin-bottom: 50px; }
+    .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 820px; margin: 0 auto 48px; }
+    .price-card { border-radius: 20px; padding: 40px 32px; text-align: center; position: relative; }
+    .price-card.main { background: linear-gradient(135deg, var(--primary), #881337); color: #fff; box-shadow: 0 12px 40px rgba(190,24,93,0.25); }
+    .price-card.recurring { background: var(--light); border: 2px solid #fce7f3; }
+    .price-card .price-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 18px; }
+    .price-card.main .price-badge { background: rgba(255,255,255,0.2); color: #fff; }
+    .price-card.recurring .price-badge { background: #fce7f3; color: var(--primary); }
+    .price-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+    .price-card .price-amount { font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 6px; }
+    .price-card .price-amount span { font-size: 20px; font-weight: 500; }
+    .price-card .price-note { font-size: 13px; opacity: 0.7; margin-bottom: 24px; }
+    .price-card .price-items { list-style: none; text-align: left; }
+    .price-card .price-items li { font-size: 13px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; align-items: center; }
+    .price-card.recurring .price-items li { border-bottom-color: #fce7f3; color: #1e293b; }
+    .price-card .price-items li:last-child { border-bottom: none; }
+    .price-items .item-label { font-weight: 500; }
+    .price-items .item-price { font-weight: 700; white-space: nowrap; }
+    .total-band { background: linear-gradient(135deg, var(--primary), #881337); color: #fff; border-radius: 16px; padding: 28px 40px; max-width: 820px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .total-band .total-label { font-size: 16px; font-weight: 600; }
+    .total-band .total-amount { font-size: 32px; font-weight: 900; }
+    @media (max-width: 768px) {
+      .pricing-cards { grid-template-columns: 1fr; }
+    }
+
     /* ── TOP BAR ── */
-    .topbar { background: #1a0a2e; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .topbar { background: #4a0e2a; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
     .topbar span { font-size: 13px; color: rgba(255,255,255,0.45); }
     .topbar span strong { color: var(--accent); }
     .topbar-links { display: flex; gap: 24px; }
@@ -26,8 +55,8 @@
     .topbar-links a:hover { color: var(--accent); }
 
     /* ── HERO ── */
-    .hero { background: linear-gradient(135deg, #6B21A8 0%, #2d0a4e 60%, #1a0530 100%); padding: 100px 40px 90px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 70% 30%, rgba(212,175,55,0.08) 0%, transparent 60%); }
+    .hero { background: linear-gradient(135deg, #BE185D 0%, #881337 60%, #4a0e2a 100%); padding: 100px 40px 90px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 70% 30%, rgba(244,114,182,0.1) 0%, transparent 60%); }
     .hero-badge { display: inline-block; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.35); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; margin-bottom: 28px; }
     .hero h1 { font-size: clamp(30px, 5.5vw, 54px); font-weight: 800; color: #fff; line-height: 1.12; max-width: 860px; margin: 0 auto 22px; }
     .hero h1 span { color: var(--accent); }
@@ -47,7 +76,7 @@
     .s-sub { font-size: 16px; color: var(--muted); margin-bottom: 40px; line-height: 1.7; max-width: 720px; }
 
     /* ── PAIN POINTS ── */
-    .pain { background: #fef3f8; padding: 76px 40px; }
+    .pain { background: #fdf2f8; padding: 76px 40px; }
     .pain-inner { max-width: 1000px; margin: 0 auto; }
     .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     .pain-card { background: #fff; border-left: 4px solid var(--accent); padding: 24px 26px; border-radius: 0 14px 14px 0; box-shadow: 0 2px 14px rgba(0,0,0,0.04); }
@@ -79,8 +108,8 @@
     .feature-block.reverse { direction: rtl; }
     .feature-block.reverse > * { direction: ltr; }
     .feature-img { background: var(--light); border-radius: 20px; padding: 40px; min-height: 290px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-    .feature-img::before { content: ''; position: absolute; bottom: -30px; right: -30px; width: 150px; height: 150px; background: rgba(107,33,168,0.05); border-radius: 50%; }
-    .feat-number { font-size: 88px; font-weight: 900; color: rgba(107,33,168,0.06); position: absolute; top: 8px; right: 20px; line-height: 1; }
+    .feature-img::before { content: ''; position: absolute; bottom: -30px; right: -30px; width: 150px; height: 150px; background: rgba(190,24,93,0.05); border-radius: 50%; }
+    .feat-number { font-size: 88px; font-weight: 900; color: rgba(190,24,93,0.06); position: absolute; top: 8px; right: 20px; line-height: 1; }
     .mock-card { background: #fff; border-radius: 12px; padding: 16px 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); margin-bottom: 12px; }
     .mock-card h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
     .mock-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
@@ -88,7 +117,7 @@
     .stat-pill { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
     .stat-green { background: #dcfce7; color: #16a34a; }
     .stat-amber { background: #fef3c7; color: #b45309; }
-    .stat-purple { background: #f3e8ff; color: #7c3aed; }
+    .stat-purple { background: #fce7f3; color: #be185d; }
     .stat-gold { background: #fef9e7; color: #b8860b; }
     .feature-text h3 { font-size: 26px; font-weight: 800; color: var(--primary); margin-bottom: 10px; line-height: 1.25; }
     .feature-text .tagline { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 10px; }
@@ -105,8 +134,8 @@
     .portals-sub { text-align: center; font-size: 16px; color: var(--muted); margin-bottom: 50px; }
     .portals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
     .portal-card { border-radius: 18px; padding: 32px; position: relative; overflow: hidden; }
-    .portal-card.admin-card-p { background: linear-gradient(135deg, #6B21A8, #3b0764); color: #fff; }
-    .portal-card.client-card { background: var(--light); border: 2px solid #e9d8f5; color: var(--primary); }
+    .portal-card.admin-card-p { background: linear-gradient(135deg, #BE185D, #881337); color: #fff; }
+    .portal-card.client-card { background: var(--light); border: 2px solid #fce7f3; color: var(--primary); }
     .portal-card.public-card { background: linear-gradient(135deg, #b8860b, #856508); color: #fff; }
     .portal-card.chatbot-card { background: linear-gradient(135deg, #064e3b, #043828); color: #fff; }
     .portal-card .p-icon { font-size: 32px; margin-bottom: 16px; }
@@ -136,7 +165,7 @@
     .result-card .r-lbl { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
     /* ── TESTIMONIAL ── */
-    .testimonial { padding: 60px 40px; background: var(--light); border-top: 1px solid #f0e6f6; border-bottom: 1px solid #f0e6f6; }
+    .testimonial { padding: 60px 40px; background: var(--light); border-top: 1px solid #fce7f3; border-bottom: 1px solid #fce7f3; }
     .testimonial-inner { max-width: 720px; margin: 0 auto; text-align: center; }
     .testimonial blockquote { font-size: 20px; color: var(--primary); font-weight: 600; line-height: 1.6; font-style: italic; margin-bottom: 18px; }
     .testimonial cite { font-size: 14px; color: var(--muted); font-style: normal; }
@@ -150,14 +179,14 @@
     .inc-check { color: var(--green); font-size: 16px; }
 
     /* ── CTA ── */
-    .cta { background: linear-gradient(135deg, #6B21A8 0%, #2d0a4e 100%); padding: 88px 40px; text-align: center; }
+    .cta { background: linear-gradient(135deg, #BE185D 0%, #881337 100%); padding: 88px 40px; text-align: center; }
     .cta h2 { font-size: 40px; font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.15; }
     .cta p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 600px; margin: 0 auto 40px; line-height: 1.75; }
     .cta .btn-primary { font-size: 17px; padding: 18px 48px; }
     .cta-note { margin-top: 22px; font-size: 13px; color: rgba(255,255,255,0.35); }
 
     /* ── FOOTER ── */
-    .footer { background: #0e0518; padding: 34px 40px; text-align: center; color: rgba(255,255,255,0.35); font-size: 13px; }
+    .footer { background: #1a0a12; padding: 34px 40px; text-align: center; color: rgba(255,255,255,0.35); font-size: 13px; }
     .footer a { color: var(--accent); text-decoration: none; }
 
     /* ── RESPONSIVE ── */
@@ -178,7 +207,7 @@
     <div class="topbar-links">
       <a href="#features">What You Get</a>
       <a href="#portals">How It Works</a>
-      <a href="#results">Results</a>
+      <a href="#pricing">Pricing</a>
       <a href="#cta">Get Started</a>
     </div>
   </div>
@@ -195,10 +224,10 @@
       <a href="#features" class="btn-outline">See What's Inside ↓</a>
     </div>
     <div class="hero-stats">
-      <div class="h-stat"><div class="num">97+</div><div class="lbl">Treatment Pages</div></div>
+      <div class="h-stat"><div class="num">90+</div><div class="lbl">Total Pages</div></div>
       <div class="h-stat"><div class="num">24/7</div><div class="lbl">AI Lead Capture</div></div>
       <div class="h-stat"><div class="num">3</div><div class="lbl">Clinic Locations</div></div>
-      <div class="h-stat"><div class="num">₹0</div><div class="lbl">Monthly Hosting</div></div>
+      <div class="h-stat"><div class="num">₹2.3L</div><div class="lbl">One-Time Investment</div></div>
     </div>
   </section>
 
@@ -256,17 +285,21 @@
       <h3>Everything Inside Your AEGLE Website</h3>
       <div class="checklist-grid">
         <div class="cl-item"><div class="cl-icon">✨</div><span>AI Chat Assistant (Aura)</span></div>
-        <div class="cl-item"><div class="cl-icon">💜</div><span>97+ Treatment Pages</span></div>
+        <div class="cl-item"><div class="cl-icon">�</div><span>97+ Treatment Pages</span></div>
         <div class="cl-item"><div class="cl-icon">📅</div><span>Online Booking System</span></div>
         <div class="cl-item"><div class="cl-icon">👩‍⚕️</div><span>Doctor Profiles &amp; Ratings</span></div>
-        <div class="cl-item"><div class="cl-icon">🛍️</div><span>Online Product Shop</span></div>
+        <div class="cl-item"><div class="cl-icon">🛒</div><span>Full E-Commerce Shop + Cart</span></div>
+        <div class="cl-item"><div class="cl-icon">💳</div><span>Razorpay Checkout &amp; Payments</span></div>
         <div class="cl-item"><div class="cl-icon">👤</div><span>Client Self-Service Portal</span></div>
         <div class="cl-item"><div class="cl-icon">📊</div><span>Admin Control Panel</span></div>
         <div class="cl-item"><div class="cl-icon">📍</div><span>3 Clinic Location Pages</span></div>
         <div class="cl-item"><div class="cl-icon">⭐</div><span>Client Reviews &amp; Ratings</span></div>
         <div class="cl-item"><div class="cl-icon">📸</div><span>Before/After Gallery</span></div>
-        <div class="cl-item"><div class="cl-icon">💳</div><span>Online Payments</span></div>
+        <div class="cl-item"><div class="cl-icon">🏆</div><span>Loyalty / Rewards Program</span></div>
+        <div class="cl-item"><div class="cl-icon">📱</div><span>WhatsApp Chat Integration</span></div>
         <div class="cl-item"><div class="cl-icon">🎉</div><span>Promotions &amp; Offers System</span></div>
+        <div class="cl-item"><div class="cl-icon">📝</div><span>Blog &amp; Patient Resources</span></div>
+        <div class="cl-item"><div class="cl-icon">🔒</div><span>Privacy, Terms &amp; Refund Pages</span></div>
       </div>
     </div>
   </section>
@@ -639,12 +672,12 @@
           <div class="r-lbl">More Consultation Enquiries</div>
         </div>
         <div class="result-card">
-          <div class="r-num">97+</div>
+          <div class="r-num">90+</div>
           <div class="r-lbl">Pages Ranked on Google</div>
         </div>
         <div class="result-card">
-          <div class="r-num">₹0</div>
-          <div class="r-lbl">Monthly Hosting &amp; Chat Costs</div>
+          <div class="r-num">28</div>
+          <div class="r-lbl">Features Included</div>
         </div>
       </div>
     </div>
@@ -665,31 +698,125 @@
   <section class="includes" id="includes">
     <div class="includes-inner">
       <div class="section-label">Complete Package</div>
-      <h2>Everything Included — Nothing Extra to Buy</h2>
+      <h2>Everything Included in ₹2,30,000</h2>
       <ul class="includes-list">
-        <li><span class="inc-check">✅</span> AI Chat Assistant "Aura" (24/7 lead capture)</li>
-        <li><span class="inc-check">✅</span> Enquiry Dashboard for your team</li>
-        <li><span class="inc-check">✅</span> Deep Purple &amp; Gold luxury design</li>
-        <li><span class="inc-check">✅</span> 97+ treatment pages across 9 categories</li>
-        <li><span class="inc-check">✅</span> Doctor profiles (Dr. Surekha &amp; Dr. Nithya)</li>
-        <li><span class="inc-check">✅</span> Online appointment booking system</li>
-        <li><span class="inc-check">✅</span> Client self-service portal</li>
-        <li><span class="inc-check">✅</span> Online product shop with payments</li>
-        <li><span class="inc-check">✅</span> Admin control panel (no tech skills needed)</li>
-        <li><span class="inc-check">✅</span> 3 clinic location pages (Bangalore)</li>
-        <li><span class="inc-check">✅</span> Blog &amp; skin care tips section</li>
-        <li><span class="inc-check">✅</span> Client reviews &amp; star ratings</li>
-        <li><span class="inc-check">✅</span> Before/After gallery</li>
-        <li><span class="inc-check">✅</span> Promotions &amp; offers system</li>
-        <li><span class="inc-check">✅</span> Works perfectly on mobile, tablet &amp; desktop</li>
-        <li><span class="inc-check">✅</span> Google-optimised for search rankings</li>
-        <li><span class="inc-check">✅</span> Dark mode for modern look</li>
-        <li><span class="inc-check">✅</span> Newsletter subscription system</li>
-        <li><span class="inc-check">✅</span> ₹0/month hosting — free forever</li>
-        <li><span class="inc-check">✅</span> Full ownership — it's your website</li>
-        <li><span class="inc-check">✅</span> Complete documentation included</li>
-        <li><span class="inc-check">✅</span> Ready to go live in under 2 weeks</li>
+        <li><span class="inc-check">✅</span> AI Chat Assistant "Aura" (OpenAI GPT-4o — 24/7 lead capture)</li>
+        <li><span class="inc-check">✅</span> Enquiry Dashboard for your team (call &amp; WhatsApp in one tap)</li>
+        <li><span class="inc-check">✅</span> Rose Pink &amp; Gold luxury responsive design</li>
+        <li><span class="inc-check">✅</span> 97+ treatment pages across 9 browsable categories</li>
+        <li><span class="inc-check">✅</span> Doctor profiles with ratings &amp; direct booking</li>
+        <li><span class="inc-check">✅</span> Online appointment booking system (date/doctor/treatment picker)</li>
+        <li><span class="inc-check">✅</span> Client self-service portal (login, appointments, bills, messages)</li>
+        <li><span class="inc-check">✅</span> Full e-commerce shop with cart, search, filters &amp; sorting</li>
+        <li><span class="inc-check">✅</span> Product detail pages with ratings, ingredients &amp; qty picker</li>
+        <li><span class="inc-check">✅</span> Checkout page with Razorpay (UPI, cards, net banking, EMI)</li>
+        <li><span class="inc-check">✅</span> Admin shop panel — add/edit/delete products with image upload</li>
+        <li><span class="inc-check">✅</span> Admin control panel (appointments, enquiries, blog, shop)</li>
+        <li><span class="inc-check">✅</span> 3 clinic location pages (Bangalore branches)</li>
+        <li><span class="inc-check">✅</span> Blog &amp; skin care tips section with rich editor</li>
+        <li><span class="inc-check">✅</span> Client reviews &amp; star ratings page</li>
+        <li><span class="inc-check">✅</span> Photo gallery with category filters</li>
+        <li><span class="inc-check">✅</span> Glow Rewards loyalty program (Silver / Gold / Platinum tiers)</li>
+        <li><span class="inc-check">✅</span> WhatsApp floating chat button</li>
+        <li><span class="inc-check">✅</span> Promotions &amp; offers system (FLAT 10% OFF banner)</li>
+        <li><span class="inc-check">✅</span> Billing page with online bill payment</li>
+        <li><span class="inc-check">✅</span> Privacy Policy, Terms of Service &amp; Refund Policy pages</li>
+        <li><span class="inc-check">✅</span> Custom AEGLE SVG logo (3 variants: full, dark, icon)</li>
+        <li><span class="inc-check">✅</span> Dark mode toggle for modern look</li>
+        <li><span class="inc-check">✅</span> Google-optimised (90+ pages indexed for search rankings)</li>
+        <li><span class="inc-check">✅</span> Mobile-first — works perfectly on phone, tablet &amp; desktop</li>
+        <li><span class="inc-check">✅</span> Firebase backend (Firestore + Storage + Auth)</li>
+        <li><span class="inc-check">✅</span> Deployment guide &amp; complete documentation</li>
+        <li><span class="inc-check">✅</span> Fully managed website — yours to use forever, we handle the tech</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── PRICING ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-inner">
+      <div class="section-label">Transparent Pricing</div>
+      <h2>Investment Breakdown</h2>
+      <p class="pricing-sub">One-time build cost + minimal recurring costs to keep everything running.</p>
+
+      <div class="pricing-cards">
+        <!-- One-Time -->
+        <div class="price-card main">
+          <span class="price-badge">One-Time</span>
+          <h3>Website Development</h3>
+          <div class="price-amount">₹2,30,000</div>
+          <p class="price-note">One-time payment · Full ownership</p>
+          <ul class="price-items">
+            <li><span class="item-label">90+ page premium website</span></li>
+            <li><span class="item-label">AI chatbot "Aura" (OpenAI GPT-4o)</span></li>
+            <li><span class="item-label">Admin dashboard &amp; enquiry system</span></li>
+            <li><span class="item-label">Full e-commerce shop with cart &amp; checkout</span></li>
+            <li><span class="item-label">Razorpay payment integration</span></li>
+            <li><span class="item-label">Client portal &amp; loyalty program</span></li>
+            <li><span class="item-label">97+ treatment &amp; service pages</span></li>
+            <li><span class="item-label">Doctor profiles, gallery, blog</span></li>
+            <li><span class="item-label">Unlimited location pages (admin-managed) + WhatsApp</span></li>
+            <li><span class="item-label">Firebase backend (DB + Storage + Auth)</span></li>
+            <li><span class="item-label">Custom AEGLE logo (3 SVG variants)</span></li>
+            <li><span class="item-label">Mobile-first responsive design</span></li>
+            <li><span class="item-label">Dark mode + SEO optimised</span></li>
+            <li><span class="item-label">Admin panel for products, locations &amp; content</span></li>
+          </ul>
+        </div>
+
+        <!-- Recurring -->
+        <div class="price-card recurring">
+          <span class="price-badge">Recurring</span>
+          <h3>Running Costs</h3>
+          <div class="price-amount" style="color: var(--primary);">₹5,249<span>/mo avg</span></div>
+          <p class="price-note" style="color: var(--muted);">Keep your website live, fast &amp; secure</p>
+          <ul class="price-items">
+            <li>
+              <span class="item-label">Domain Renewal</span>
+              <span class="item-price" style="color: var(--primary);">₹999 / year</span>
+            </li>
+            <li>
+              <span class="item-label">Monthly Maintenance &amp; Hosting</span>
+              <span class="item-price" style="color: var(--primary);">₹3,500 / month</span>
+            </li>
+            <li>
+              <span class="item-label">Yearly AI Maintenance</span>
+              <span class="item-price" style="color: var(--primary);">₹1,999 / year</span>
+            </li>
+          </ul>
+          <div style="margin-top: 24px; padding-top: 18px; border-top: 2px solid #fce7f3;">
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Annual breakdown:</p>
+            <ul class="price-items">
+              <li>
+                <span class="item-label" style="color: #1e293b;">Hosting &amp; Maintenance (12 mo)</span>
+                <span class="item-price" style="color: var(--primary);">₹42,000</span>
+              </li>
+              <li>
+                <span class="item-label" style="color: #1e293b;">Domain Renewal</span>
+                <span class="item-price" style="color: var(--primary);">₹999</span>
+              </li>
+              <li>
+                <span class="item-label" style="color: #1e293b;">AI Maintenance</span>
+                <span class="item-price" style="color: var(--primary);">₹1,999</span>
+              </li>
+              <li style="border-top: 2px solid var(--primary); padding-top: 12px; margin-top: 4px;">
+                <span class="item-label" style="color: #1e293b; font-weight: 800; font-size: 15px;">Total per Year</span>
+                <span class="item-price" style="color: var(--primary); font-size: 18px;">₹44,998</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="total-band">
+        <div>
+          <div class="total-label">First Year Total Investment</div>
+          <p style="font-size: 12px; opacity: 0.7;">Website build + 12 months running costs</p>
+        </div>
+        <div class="total-amount">₹2,74,998</div>
+      </div>
     </div>
   </section>
 
@@ -698,14 +825,14 @@
   <!-- ══════════════════════════════════════════ -->
   <section class="cta" id="cta">
     <h2>Ready to Take AEGLE Online?</h2>
-    <p>Your premium website is built and waiting. An AI assistant that never sleeps, 97+ treatment pages, online bookings, a product shop — everything ready to start capturing clients across your 3 clinics.</p>
-    <a href="mailto:info@aegleclinic.com?subject=AEGLE Website — Let's Go Live" class="btn-primary">🚀 Let's Go Live — Contact Us</a>
-    <p class="cta-note">No monthly fees · ₹0 hosting · Full website ownership · Live in under 2 weeks</p>
+    <p>Your premium website is built and waiting. An AI assistant that never sleeps, 90+ pages, online shop with cart &amp; checkout, and a full admin dashboard — everything ready to start capturing clients across your 3 clinics.</p>
+    <a href="mailto:info@aegleclinic.com?subject=AEGLE Website — Let's Go Live" class="btn-primary">🚀 Let’s Go Live — Contact Us</a>
+    <p class="cta-note">One-time ₹2,30,000 · Full website ownership · Live in under 2 weeks</p>
   </section>
 
   <!-- ── FOOTER ── -->
   <div class="footer">
-    <p>Crafted with 💜 by <a href="#">VWebStudio</a> &nbsp;·&nbsp; AEGLE — Goddess of Radiant Health &amp; Beauty &nbsp;·&nbsp; © 2026</p>
+    <p>Crafted with ❤️ by <a href="#">VWebStudio</a> &nbsp;·&nbsp; AEGLE — Goddess of Radiant Health &amp; Beauty &nbsp;·&nbsp; © 2026</p>
   </div>
 
 </body>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_NAME, CONTACT_PHONE } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
@@ -47,6 +48,23 @@ export default function ReviewsPage() {
               <Stars count={Math.round(Number(avgRating))} />
               <p className="text-sm text-white/70 mt-1">Based on {reviews.length}+ reviews</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Image Banner */}
+      <section className="container mx-auto px-4 py-10">
+        <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl">
+          <Image
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80"
+            alt="Happy client after AEGLE skin care treatment"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <p className="text-lg font-semibold">Real Results, Real People</p>
+            <p className="text-sm text-white/80">See what our clients say about their skin transformation</p>
           </div>
         </div>
       </section>

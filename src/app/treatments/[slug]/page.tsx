@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
@@ -55,6 +56,20 @@ export default async function DepartmentDetailPage({
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main content */}
             <div className="lg:col-span-2 space-y-8">
+              {/* Hero Image */}
+              {dept.image && (
+                <div className="relative aspect-video rounded-2xl overflow-hidden bg-muted">
+                  <Image
+                    src={dept.image}
+                    alt={dept.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width:1024px) 100vw,66vw"
+                    priority
+                  />
+                </div>
+              )}
+
               {/* Overview */}
               <div>
                 <h2 className="text-2xl font-bold text-foreground mb-4">

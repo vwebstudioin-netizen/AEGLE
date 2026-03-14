@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,11 +10,24 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { locations } from "@/data/locations";
 import { SITE_NAME } from "@/lib/constants";
+
+interface LocationItem {
+  id: string;
+  name: string;
+  address: { street: string; city: string; state?: string; zip?: string };
+}
 
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [locations, setLocations] = useState<LocationItem[]>([]);
+
+  useEffect(() => {
+    fetch("/api/locations")
+      .then((r) => r.json())
+      .then((d) => setLocations(d.locations || []))
+      .catch(() => {});
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,6 +57,21 @@ export default function ContactPage() {
 
       <section className="py-16">
         <div className="container mx-auto px-4">
+          {/* Clinic Image Banner */}
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl mb-10">
+            <Image
+              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80"
+              alt="AEGLE Skin Care Clinic reception"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="absolute bottom-6 left-6 text-white">
+              <p className="text-lg font-semibold">Visit Our Clinic</p>
+              <p className="text-sm text-white/80">Modern facilities designed for your comfort</p>
+            </div>
+          </div>
+
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Contact Form */}
             <div className="lg:col-span-2">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -46,6 +47,20 @@ export default async function ServiceDetailPage({
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
+              {/* Hero Image */}
+              {service.image && (
+                <div className="relative aspect-video rounded-2xl overflow-hidden bg-muted">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width:1024px) 100vw,66vw"
+                    priority
+                  />
+                </div>
+              )}
+
               <div>
                 <h2 className="text-2xl font-bold text-foreground mb-4">Overview</h2>
                 <p className="text-muted-foreground leading-relaxed">{service.longDescription}</p>

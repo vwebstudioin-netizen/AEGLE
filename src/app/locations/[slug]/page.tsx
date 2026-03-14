@@ -6,11 +6,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { EmojiIcon } from "@/components/shared/EmojiIcon";
-import { locations } from "@/data/locations";
+import { getLocations, getLocationBySlug } from "@/lib/get-locations";
 import { departments } from "@/data/departments";
 import { formatTime } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
+  const { locations } = await import("@/data/locations");
   return locations.map((l) => ({ slug: l.slug }));
 }
 
@@ -20,7 +23,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const loc = locations.find((l) => l.slug === slug);
+  const loc = await getLocationBySlug(slug);
   if (!loc) return {};
   return { title: loc.name, description: loc.description };
 }
@@ -31,7 +34,7 @@ export default async function LocationDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const loc = locations.find((l) => l.slug === slug);
+  const loc = await getLocationBySlug(slug);
   if (!loc) notFound();
 
   return (

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -35,7 +36,18 @@ export default function ServicesPage() {
                   .filter((s) => s.category === category)
                   .map((service) => (
                     <Link key={service.id} href={`/services/${service.slug}`}>
-                      <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1">
+                      <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
+                        {service.image && (
+                          <div className="relative h-40 bg-muted">
+                            <Image
+                              src={service.image}
+                              alt={service.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,33vw"
+                            />
+                          </div>
+                        )}
                         <CardHeader>
                           <div className="flex items-center gap-3">
                             <EmojiIcon emoji={service.icon} className="w-7 h-7 text-primary" />
