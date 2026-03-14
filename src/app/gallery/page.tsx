@@ -1,12 +1,11 @@
+"use client";
+
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { SITE_NAME, CONTACT_PHONE } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
-
-export const metadata = {
-  title: `Gallery — ${SITE_NAME}`,
-  description: "View our clinic interiors, treatment results, before & after transformations, and happy client moments at AEGLE Skin Care Clinic.",
-};
+import { FadeIn } from "@/components/shared/FadeIn";
+import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
   { src: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600", alt: "Clinic Reception", category: "Clinic" },
@@ -26,11 +25,48 @@ const galleryImages = [
 const categories = ["All", "Clinic", "Treatments", "Results", "Products"];
 
 export default function GalleryPage() {
+  const [active, setActive] = useState("All");
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const filtered = active === "All" ? galleryImages : galleryImages.filter((img) => img.category === active);
+
+  const openLightbox = (idx: number) => setLightbox(idx);
+  const closeLightbox = () => setLightbox(null);
+
+  const goPrev = useCallback(() => {
+    if (lightbox === null) return;
+    setLightbox((lightbox - 1 + filtered.length) % filtered.length);
+  }, [lightbox, filtered.length]);
+
+  const goNext = useCallback(() => {
+    if (lightbox === null) return;
+    setLightbox((lightbox + 1) % filtered.length);
+  }, [lightbox, filtered.length]);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightbox, goPrev, goNext]);
+
   return (
     <main className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="gradient-hero text-white py-16">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-20 overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1600&q=80"
+          alt="Spa ambience"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40" />
+        <div className="relative container mx-auto px-4 text-center text-white">
           <h1 className="text-3xl lg:text-5xl font-bold mb-4">Our Gallery</h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Step inside AEGLE — explore our world-class clinic interiors, advanced treatment facilities, and real transformations.
@@ -41,35 +77,90 @@ export default function GalleryPage() {
       {/* Gallery Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
+          {/* Category filters */}
           <div className="flex flex-wrap gap-3 justify-center mb-10">
             {categories.map((cat) => (
-              <span key={cat} className="px-4 py-2 rounded-full border border-border bg-card text-sm font-medium hover:bg-primary hover:text-white cursor-pointer transition-colors">
+              <button
+                key={cat}
+                onClick={() => setActive(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                  active === cat
+                    ? "bg-primary text-white shadow-md"
+                    : "border border-border bg-card hover:bg-primary/10"
+                }`}
+              >
                 {cat}
-              </span>
+              </button>
             ))}
           </div>
 
+          {/* Masonry grid */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-            {galleryImages.map((img, i) => (
-              <div key={i} className="relative group overflow-hidden rounded-xl break-inside-avoid">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <div>
-                    <span className="text-xs bg-primary/80 text-white px-2 py-1 rounded-full">{img.category}</span>
-                    <p className="text-white font-semibold mt-1">{img.alt}</p>
+            {filtered.map((img, i) => (
+              <FadeIn key={`${active}-${i}`} direction="up" delay={i * 60}>
+                <div
+                  className="relative group overflow-hidden rounded-xl break-inside-avoid cursor-pointer"
+                  onClick={() => openLightbox(i)}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <div className="flex-1">
+                      <span className="text-xs bg-primary/80 text-white px-2 py-1 rounded-full">{img.category}</span>
+                      <p className="text-white font-semibold mt-1">{img.alt}</p>
+                    </div>
+                    <ZoomIn className="w-6 h-6 text-white/80" />
                   </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
+
+          {filtered.length === 0 && (
+            <p className="text-center text-muted-foreground py-12">No images in this category.</p>
+          )}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center" onClick={closeLightbox}>
+          <button onClick={closeLightbox} className="absolute top-4 right-4 text-white hover:text-primary transition-colors z-10">
+            <X className="w-8 h-8" />
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); goPrev(); }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-primary transition-colors z-10"
+          >
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+          <button
+            onClick={(e) => { e.stopPropagation(); goNext(); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-primary transition-colors z-10"
+          >
+            <ChevronRight className="w-10 h-10" />
+          </button>
+          <div className="relative max-w-4xl max-h-[85vh] mx-auto" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={filtered[lightbox].src.replace("w=600", "w=1200")}
+              alt={filtered[lightbox].alt}
+              width={1200}
+              height={800}
+              className="object-contain max-h-[85vh] w-auto mx-auto rounded-lg"
+            />
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-lg text-center">
+              <span className="text-xs bg-primary/80 text-white px-2 py-1 rounded-full">{filtered[lightbox].category}</span>
+              <p className="text-white font-semibold mt-1">{filtered[lightbox].alt}</p>
+              <p className="text-white/60 text-xs mt-1">{lightbox + 1} / {filtered.length}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* CTA */}
       <section className="py-16 bg-muted text-center">

@@ -159,3 +159,17 @@ html {
   animation: shimmer 3s ease-in-out infinite;
   background-size: 200% 100%;
 }
+
+/* Scroll-triggered fade-in */
+.fade-in-visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+/* Parallax background helper */
+.bg-parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

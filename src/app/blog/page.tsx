@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero } from "@/components/layout/PageHero";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { SectionHeader } from "@/components/shared/SectionHeader";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -75,37 +74,83 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <>
-      <PageHero
-        title="Health Blog"
-        subtitle="Expert health tips, medical breakthroughs, and wellness insights from our physicians."
-        breadcrumbs={[{ label: "Blog" }]}
-      />
+    <main className="min-h-screen bg-background">
+      {/* Gradient Hero */}
+      <section className="gradient-hero text-white py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-10" />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-3xl lg:text-5xl font-bold mb-4">Health Blog</h1>
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+            Expert health tips, medical breakthroughs, and wellness insights from our physicians.
+          </p>
+        </div>
+      </section>
 
+      {/* Featured Post */}
+      {posts[0] && (
+        <section className="container mx-auto px-4 -mt-8 relative z-10 mb-12">
+          <Link href={`/blog/${posts[0].slug}`}>
+            <Card className="overflow-hidden hover:shadow-2xl transition-all group">
+              <div className="grid md:grid-cols-2">
+                <div className="relative h-64 md:h-auto overflow-hidden">
+                  <Image
+                    src={posts[0].image}
+                    alt={posts[0].title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
+                </div>
+                <CardContent className="p-8 flex flex-col justify-center">
+                  <Badge className="w-fit mb-3">{posts[0].category}</Badge>
+                  <h2 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{posts[0].title}</h2>
+                  <p className="text-muted-foreground mb-4">{posts[0].excerpt}</p>
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <span className="font-medium text-foreground">{posts[0].author}</span>
+                    <span>·</span>
+                    <span>{new Date(posts[0].date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
+          </Link>
+        </section>
+      )}
+
+      {/* Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post) => (
-              <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="h-48 overflow-hidden">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
-                </div>
-                <CardContent className="p-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="secondary" className="text-xs">{post.category}</Badge>
-                    <span className="text-xs text-muted-foreground">
-                      {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                    </span>
+            {posts.slice(1).map((post) => (
+              <Link key={post.id} href={`/blog/${post.slug}`}>
+                <Card className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-2 duration-300 group h-full">
+                  <div className="h-48 overflow-hidden relative">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <Badge className="bg-primary/90 text-white text-xs">{post.category}</Badge>
+                    </div>
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2 line-clamp-2">{post.title}</h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{post.excerpt}</p>
-                  <p className="text-xs text-muted-foreground">By {post.author}</p>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs text-muted-foreground">
+                        {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                      </span>
+                    </div>
+                    <h3 className="font-semibold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{post.excerpt}</p>
+                    <p className="text-xs font-medium text-primary">By {post.author}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
