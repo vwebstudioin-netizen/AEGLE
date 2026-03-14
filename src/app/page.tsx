@@ -10,6 +10,7 @@ import { doctors } from "@/data/doctors";
 import { services } from "@/data/services";
 import { SITE_NAME, SITE_TAGLINE, PROMO_CONFIG } from "@/lib/constants";
 import { EmojiIcon } from "@/components/shared/EmojiIcon";
+import { HeroSlideshow } from "@/components/shared/HeroSlideshow";
 import {
   CalendarCheck, Sparkles, MapPin, ShoppingBag,
   Star, Phone, ArrowRight, Heart, Shield, Zap, Users,
@@ -46,13 +47,16 @@ export default function HomePage() {
 
       {/* ── Hero Section ── */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        {/* Background Image */}
-        <Image
-          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1920&q=80"
-          alt="Premium skin care treatment"
-          fill
-          className="object-cover"
-          priority
+        {/* Crossfade Background Slideshow */}
+        <HeroSlideshow
+          images={[
+            { src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1920&q=80", alt: "Premium skin care treatment" },
+            { src: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1920&q=80", alt: "Facial treatment session" },
+            { src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&q=80", alt: "Skin care products" },
+            { src: "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=1920&q=80", alt: "Laser skin procedure" },
+          ]}
+          interval={6}
+          fadeDuration={1500}
         />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-transparent" />
