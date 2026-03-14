@@ -16,6 +16,14 @@ import {
   Eye, Scissors, Syringe, Flame, Droplets, ScanFace,
   Mail,
 } from "lucide-react";
+import { FloatingImages, type FloatingImage } from "@/components/shared/FloatingImages";
+
+const heroFloaters: FloatingImage[] = [
+  { src: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=300&q=70", alt: "Facial treatment", position: "top-16 right-[12%]", size: 140, animation: "animate-float-slow", delay: "0s" },
+  { src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&q=70", alt: "Skin care products", position: "bottom-28 right-[22%]", size: 110, animation: "animate-float-medium", delay: "1.5s" },
+  { src: "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=300&q=70", alt: "Laser procedure", position: "top-32 right-[35%]", size: 100, animation: "animate-drift-x", delay: "0.8s" },
+  { src: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&q=70", alt: "Happy client", position: "bottom-16 right-[5%]", size: 90, animation: "animate-float-fast", delay: "2s" },
+];
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} | ${SITE_TAGLINE}`,
@@ -57,6 +65,11 @@ export default function HomePage() {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+
+        {/* Floating decorative images — hidden on mobile */}
+        <div className="hidden lg:block">
+          <FloatingImages images={heroFloaters} />
+        </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl">

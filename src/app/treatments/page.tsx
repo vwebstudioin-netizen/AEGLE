@@ -10,6 +10,13 @@ import { EmojiIcon } from "@/components/shared/EmojiIcon";
 import { FadeIn } from "@/components/shared/FadeIn";
 import { departments } from "@/data/departments";
 import { Search } from "lucide-react";
+import { FloatingImages, type FloatingImage } from "@/components/shared/FloatingImages";
+
+const treatmentFloaters: FloatingImage[] = [
+  { src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=250&q=70", alt: "Skin treatment", position: "top-8 right-[8%]", size: 110, animation: "animate-float-slow" },
+  { src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=250&q=70", alt: "Skin analysis", position: "bottom-6 right-[20%]", size: 90, animation: "animate-float-medium", delay: "1.2s" },
+  { src: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=250&q=70", alt: "Facial", position: "top-12 left-[6%]", size: 80, animation: "animate-drift-x", delay: "0.6s" },
+];
 
 export default function DepartmentsPage() {
   const sorted = [...departments].sort((a, b) => a.order - b.order);
@@ -30,6 +37,7 @@ export default function DepartmentsPage() {
       {/* Gradient Hero */}
       <section className="gradient-hero text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-15" />
+        <div className="hidden lg:block"><FloatingImages images={treatmentFloaters} /></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl lg:text-5xl font-bold mb-4">Medical Departments</h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">

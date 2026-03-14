@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { FloatingImages } from "@/components/shared/FloatingImages";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -78,6 +79,12 @@ export default function BlogPage() {
       {/* Gradient Hero */}
       <section className="gradient-hero text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-10" />
+        <div className="hidden lg:block">
+          <FloatingImages images={[
+            { src: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=250&q=70", alt: "Health article", position: "top-4 right-[10%]", size: 100, animation: "animate-float-slow" },
+            { src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=250&q=70", alt: "Telemedicine", position: "bottom-2 right-[25%]", size: 85, animation: "animate-float-medium", delay: "1.2s" },
+          ]} />
+        </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl lg:text-5xl font-bold mb-4">Health Blog</h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
