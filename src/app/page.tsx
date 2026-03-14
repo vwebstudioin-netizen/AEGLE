@@ -53,7 +53,7 @@ export default function HomePage() {
             { src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1920&q=80", alt: "Premium skin care treatment" },
             { src: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1920&q=80", alt: "Facial treatment session" },
             { src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&q=80", alt: "Skin care products" },
-            { src: "https://images.unsplash.com/photo-1559599101-f09722fb4948?w=1920&q=80", alt: "Laser skin procedure" },
+            { src: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1920&q=80", alt: "Luxury spa ambience" },
           ]}
           interval={6}
           fadeDuration={1500}

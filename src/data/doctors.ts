@@ -58,7 +58,7 @@ export const doctors: DoctorData[] = [
       "Acne & Scar Treatment",
     ],
     departments: ["skin", "face", "hair", "facials", "lasers", "cosmetic-dermatology"],
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964f137?w=400",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400",
     phone: "9900298841",
     bio: "Dr. Nithya is a highly skilled dermatologist and aesthetic specialist at AEGLE. With expertise in anti-aging treatments, laser therapy, and hair restoration, she is known for her personalized treatment plans and exceptional patient care. Her passion for staying at the forefront of dermatological science ensures clients receive the most advanced and effective treatments available.",
     education: [
