@@ -97,9 +97,9 @@ export default function CommunityPage() {
           Whether you want to volunteer, partner with us, or attend a community event, we welcome your participation in building a healthier community.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/careers/volunteer"><Button>Volunteer with Us</Button></Link>
-          <Link href="/giving"><Button variant="outline">Make a Donation</Button></Link>
-          <Link href="/contact"><Button variant="outline">Contact Community Health</Button></Link>
+          <Link href="/contact"><Button>Get in Touch</Button></Link>
+          <Link href="/contact"><Button variant="outline">Support AEGLE</Button></Link>
+          <Link href="/contact"><Button variant="outline">Contact Us</Button></Link>
         </div>
       </section>
     </>

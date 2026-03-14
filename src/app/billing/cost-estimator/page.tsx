@@ -25,7 +25,7 @@ export default function CostEstimatorPage() {
     <>
       <PageHero title="Cost Estimator" subtitle="Get an estimated cost range for common procedures and services." breadcrumbs={[{ label: "Billing", href: "/billing" }, { label: "Cost Estimator" }]} />
       <section className="container mx-auto px-4 py-16 max-w-3xl">
-        <div className="rounded-2xl border bg-amber-50 p-4 mb-8 dark:bg-amber-950/30"><p className="text-sm">These are <strong>estimated</strong> cost ranges. Actual costs depend on your insurance, facility, and clinical specifics. Contact our <a href="/patients-visitors/financial-counseling" className="text-primary hover:underline">Financial Counseling team</a> for a personalized estimate.</p></div>
+        <div className="rounded-2xl border bg-amber-50 p-4 mb-8 dark:bg-amber-950/30"><p className="text-sm">These are <strong>estimated</strong> cost ranges. Actual costs depend on your treatment plan and clinical specifics. <a href="/contact" className="text-primary hover:underline">Contact us</a> for a personalized estimate.</p></div>
         <Label>Search Procedure</Label>
         <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="e.g. MRI, X-Ray, Blood Count..." className="mb-6" />
         <div className="space-y-3">

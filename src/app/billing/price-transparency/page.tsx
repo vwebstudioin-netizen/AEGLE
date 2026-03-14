@@ -25,7 +25,7 @@ export default function PriceTransparencyPage() {
         </div>
 
         <h2>Consumer-Friendly Tools</h2>
-        <p>For an easier way to estimate your costs, visit our <Link href="/billing/cost-estimator" className="text-primary hover:underline">Cost Estimator</Link> tool. You can also contact our <Link href="/patients-visitors/financial-counseling" className="text-primary hover:underline">Financial Counseling</Link> team for personalized estimates.</p>
+        <p>For an easier way to estimate your costs, visit our <Link href="/billing/cost-estimator" className="text-primary hover:underline">Cost Estimator</Link> tool. You can also <Link href="/contact" className="text-primary hover:underline">contact us</Link> for personalized estimates.</p>
 
         <h2>Questions?</h2>
         <p>If you have questions about pricing or your bill, please call our billing department at <strong>8050507755</strong> or email <strong>billing@aegleclinic.com</strong>.</p>

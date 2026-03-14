@@ -35,7 +35,7 @@ export default function NoSurprisesPage() {
         </ul>
 
         <h2>Learn More</h2>
-        <p>For more information about your rights, visit <a href="https://www.cms.gov/nosurprises" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">CMS.gov/NoSurprises</a> or contact our <Link href="/patients-visitors/financial-counseling" className="text-primary hover:underline">Financial Counseling</Link> team.</p>
+        <p>For more information about your rights, visit <a href="https://www.cms.gov/nosurprises" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">CMS.gov/NoSurprises</a> or <Link href="/contact" className="text-primary hover:underline">contact us</Link> for assistance.</p>
       </section>
     </>
   );
