@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/shared/FadeIn";
-import { FloatingImages } from "@/components/shared/FloatingImages";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryImages = [
@@ -67,13 +66,6 @@ export default function GalleryPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40" />
-        <div className="hidden lg:block">
-          <FloatingImages images={[
-            { src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=250&q=70", alt: "Treatment", position: "top-4 right-[8%]", size: 100, animation: "animate-float-slow" },
-            { src: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=250&q=70", alt: "Client", position: "bottom-2 left-[8%]", size: 80, animation: "animate-float-medium", delay: "1.4s" },
-            { src: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=250&q=70", alt: "Products", position: "top-8 left-[18%]", size: 90, animation: "animate-drift-x", delay: "0.7s" },
-          ]} />
-        </div>
         <div className="relative container mx-auto px-4 text-center text-white">
           <h1 className="text-3xl lg:text-5xl font-bold mb-4">Our Gallery</h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">

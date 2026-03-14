@@ -39,14 +39,6 @@ export function PageHero({
           style={{ backgroundImage: `url(${bgImage})` }}
         />
       )}
-
-      {/* Decorative floating blobs — hidden on mobile */}
-      <div className="hidden lg:block pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-10 -right-10 w-56 h-56 rounded-full bg-primary/8 animate-float-slow" />
-        <div className="absolute top-1/2 -left-16 w-40 h-40 rounded-full bg-secondary/10 animate-float-medium" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute -bottom-8 right-1/4 w-32 h-32 rounded-full bg-primary/6 animate-drift-x" style={{ animationDelay: "0.8s" }} />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav aria-label="Breadcrumb" className="mb-4">
