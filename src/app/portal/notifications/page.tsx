@@ -3,6 +3,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { CalendarCheck, Microscope, Pill, CreditCard, Mail, Heart, Bell } from "lucide-react";
 
 const notifications = [
   { id: 1, title: "Appointment Reminder", message: "You have an appointment with Dr. Sarah Chen on January 28, 2025 at 10:00 AM.", time: "2 hours ago", read: false, type: "appointment" },
@@ -14,8 +15,15 @@ const notifications = [
 ];
 
 function getTypeIcon(type: string) {
-  const icons: Record<string, string> = { appointment: "📅", results: "🔬", medication: "💊", billing: "💳", message: "✉️", health: "❤️" };
-  return icons[type] || "🔔";
+  const icons: Record<string, React.ReactNode> = {
+    appointment: <CalendarCheck className="w-6 h-6 text-primary" />,
+    results: <Microscope className="w-6 h-6 text-primary" />,
+    medication: <Pill className="w-6 h-6 text-primary" />,
+    billing: <CreditCard className="w-6 h-6 text-primary" />,
+    message: <Mail className="w-6 h-6 text-primary" />,
+    health: <Heart className="w-6 h-6 text-primary" />,
+  };
+  return icons[type] || <Bell className="w-6 h-6 text-primary" />;
 }
 
 export default function PortalNotificationsPage() {
@@ -28,7 +36,7 @@ export default function PortalNotificationsPage() {
           {notifications.map((n) => (
             <Card key={n.id} className={!n.read ? "border-primary/50 bg-primary/5" : ""}><CardContent className="p-4">
               <div className="flex items-start gap-3">
-                <span className="text-2xl">{getTypeIcon(n.type)}</span>
+                <span className="mt-1">{getTypeIcon(n.type)}</span>
                 <div className="flex-1">
                   <div className="flex items-center gap-2"><h3 className="font-semibold">{n.title}</h3>{!n.read && <Badge className="bg-primary text-white text-xs">New</Badge>}</div>
                   <p className="text-sm text-muted-foreground mt-1">{n.message}</p>

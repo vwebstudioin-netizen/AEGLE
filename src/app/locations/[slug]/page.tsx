@@ -5,6 +5,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { EmojiIcon } from "@/components/shared/EmojiIcon";
 import { locations } from "@/data/locations";
 import { departments } from "@/data/departments";
 import { formatTime } from "@/lib/utils";
@@ -59,8 +60,8 @@ export default async function LocationDetailPage({
                     const dept = departments.find((d) => d.id === deptId);
                     return dept ? (
                       <Link key={dept.id} href={`/departments/${dept.slug}`}>
-                        <Badge variant="secondary" className="cursor-pointer hover:bg-primary hover:text-white transition-colors">
-                          {dept.icon} {dept.name}
+                        <Badge variant="secondary" className="cursor-pointer hover:bg-primary hover:text-white transition-colors flex items-center gap-1">
+                          <EmojiIcon emoji={dept.icon} className="w-3.5 h-3.5" /> {dept.name}
                         </Badge>
                       </Link>
                     ) : null;

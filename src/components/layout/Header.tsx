@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import { NAV_LINKS, SITE_NAME, SITE_TAGLINE, PROMO_CONFIG, WHATSAPP_NUMBER } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { Sparkles, Phone, ShoppingBag } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -15,6 +17,7 @@ export function Header() {
   const [megaMenuOpen, setMegaMenuOpen] = useState<string | null>(null);
   const pathname = usePathname();
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const { itemCount, toggleCart } = useCart();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -34,10 +37,10 @@ export function Header() {
         <div className="container mx-auto px-4 py-1.5 flex items-center justify-between">
           <div className="flex items-center gap-4">
             {PROMO_CONFIG.enabled && (
-              <span className="font-semibold">✨ {PROMO_CONFIG.badgeText} on all treatments</span>
+              <span className="font-semibold flex items-center gap-1"><Sparkles className="w-3.5 h-3.5" /> {PROMO_CONFIG.badgeText} on all treatments</span>
             )}
             <span className="text-white/50">|</span>
-            <span>📞 {WHATSAPP_NUMBER.replace(/^91/, "+91 ")}</span>
+            <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {WHATSAPP_NUMBER.replace(/^91/, "+91 ")}</span>
           </div>
           <div className="flex items-center gap-4">
             <Link href="/portal/login" className="hover:text-white/80 transition-colors">
@@ -133,6 +136,19 @@ export function Header() {
 
             {/* Right actions */}
             <div className="flex items-center gap-2">
+              {/* Cart button */}
+              <button
+                onClick={toggleCart}
+                className="relative p-2 rounded-lg hover:bg-muted transition-colors"
+                aria-label="Open cart"
+              >
+                <ShoppingBag className="w-5 h-5" />
+                {itemCount > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-primary text-white text-xs font-bold rounded-full flex items-center justify-center">
+                    {itemCount > 9 ? "9+" : itemCount}
+                  </span>
+                )}
+              </button>
               <Link href="/appointment" className="hidden sm:block">
                 <Button size="sm">Book Consultation</Button>
               </Link>

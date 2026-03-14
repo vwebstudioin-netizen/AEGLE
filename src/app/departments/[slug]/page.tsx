@@ -5,6 +5,7 @@ import { departments } from "@/data/departments";
 import { services } from "@/data/services";
 import { doctors } from "@/data/doctors";
 import { Button } from "@/components/ui/button";
+import { EmojiIcon } from "@/components/shared/EmojiIcon";
 import { SITE_NAME, CONTACT_PHONE } from "@/lib/constants";
 
 interface Props {
@@ -47,7 +48,7 @@ export default async function DepartmentPage({ params }: Props) {
           </div>
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="text-5xl mb-4 block">{dept.icon}</span>
+              <EmojiIcon emoji={dept.icon} className="w-12 h-12 text-white/90 mb-4" />
               <h1 className="text-3xl lg:text-5xl font-bold mb-4">{dept.name}</h1>
               <p className="text-lg text-white/90 mb-6 leading-relaxed">{dept.longDescription || dept.description}</p>
               <div className="flex flex-wrap gap-3">

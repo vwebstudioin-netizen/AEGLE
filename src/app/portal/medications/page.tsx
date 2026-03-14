@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Pill } from "lucide-react";
 
 const medications = [
   { name: "Lisinopril 10mg", dosage: "1 tablet daily", prescriber: "Dr. Sarah Chen", refills: 3, nextRefill: "Jan 10, 2025", status: "active" },
@@ -26,8 +27,8 @@ export default function MedicationsPage() {
         {medications.map((med) => (
           <Card key={med.name}>
             <CardContent className="p-4 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-lg shrink-0">
-                💊
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                <Pill className="w-5 h-5 text-primary" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2">

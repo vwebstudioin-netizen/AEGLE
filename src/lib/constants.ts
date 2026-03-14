@@ -14,7 +14,7 @@ export const CLINIC_ADDRESS =
 // ── Promo Configuration ──
 export const PROMO_CONFIG = {
   enabled: true,
-  bannerText: "✨ Flat 10% OFF on all treatments — Book your consultation today!",
+  bannerText: "Flat 10% OFF on all treatments — Book your consultation today!",
   discountPercent: 10,
   badgeText: "FLAT 10% OFF",
   ctaText: "Book Now",
@@ -42,15 +42,15 @@ export const NAV_LINKS: NavLink[] = [
     label: "Treatments",
     href: "/treatments",
     children: [
-      { label: "🧴 Skin Treatments", href: "/treatments/skin", icon: "skin" },
-      { label: "💉 Face Treatments", href: "/treatments/face", icon: "face" },
-      { label: "💆 Facials", href: "/treatments/facials", icon: "facials" },
-      { label: "💇 Hair Treatments", href: "/treatments/hair", icon: "hair" },
-      { label: "✨ Body Treatments", href: "/treatments/body", icon: "body" },
-      { label: "🔬 Laser Treatments", href: "/treatments/lasers", icon: "lasers" },
-      { label: "✨ Plastic Surgery", href: "/treatments/plastic-surgery", icon: "surgery" },
-      { label: "🩺 Cosmetic Dermatology", href: "/treatments/cosmetic-dermatology", icon: "dermatology" },
-      { label: "🌿 Aesthetic & Therapeutic", href: "/treatments/aesthetic-therapeutic", icon: "aesthetic" },
+      { label: "Skin Treatments", href: "/treatments/skin", icon: "skin" },
+      { label: "Face Treatments", href: "/treatments/face", icon: "face" },
+      { label: "Facials", href: "/treatments/facials", icon: "facials" },
+      { label: "Hair Treatments", href: "/treatments/hair", icon: "hair" },
+      { label: "Body Treatments", href: "/treatments/body", icon: "body" },
+      { label: "Laser Treatments", href: "/treatments/lasers", icon: "lasers" },
+      { label: "Plastic Surgery", href: "/treatments/plastic-surgery", icon: "surgery" },
+      { label: "Cosmetic Dermatology", href: "/treatments/cosmetic-dermatology", icon: "dermatology" },
+      { label: "Aesthetic & Therapeutic", href: "/treatments/aesthetic-therapeutic", icon: "aesthetic" },
     ],
   },
   {

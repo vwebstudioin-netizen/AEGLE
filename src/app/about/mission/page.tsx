@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Heart, Star, HandHeart, Microscope, Leaf, Users, BookOpen, Sprout,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Mission, Vision & Values",
   description: "The mission, vision, and core values that guide AEGLE Skin Care Clinic in delivering world-class healthcare.",
 };
 
-const values = [
-  { icon: "❤️", title: "Compassion", description: "We treat every patient with dignity, empathy, and respect, recognizing the whole person behind every condition." },
-  { icon: "🏆", title: "Excellence", description: "We pursue the highest standards in clinical care, research, and education — striving for outcomes that set the benchmark." },
-  { icon: "🤝", title: "Integrity", description: "We operate with transparency, honesty, and ethical responsibility in every interaction." },
-  { icon: "🔬", title: "Innovation", description: "We embrace cutting-edge technologies and novel approaches to continuously improve patient outcomes." },
-  { icon: "🌍", title: "Equity", description: "We are committed to health equity, eliminating disparities, and ensuring access for all communities." },
-  { icon: "👥", title: "Collaboration", description: "We work as one team — across disciplines, departments, and campuses — to deliver coordinated care." },
-  { icon: "📚", title: "Education", description: "We train the next generation of healthcare leaders through rigorous academic programs and mentorship." },
-  { icon: "🌱", title: "Stewardship", description: "We responsibly manage our resources to sustain our mission for future generations." },
+const values: { icon: LucideIcon; title: string; description: string }[] = [
+  { icon: Heart, title: "Compassion", description: "We treat every patient with dignity, empathy, and respect, recognizing the whole person behind every condition." },
+  { icon: Star, title: "Excellence", description: "We pursue the highest standards in clinical care, research, and education — striving for outcomes that set the benchmark." },
+  { icon: HandHeart, title: "Integrity", description: "We operate with transparency, honesty, and ethical responsibility in every interaction." },
+  { icon: Microscope, title: "Innovation", description: "We embrace cutting-edge technologies and novel approaches to continuously improve patient outcomes." },
+  { icon: Leaf, title: "Equity", description: "We are committed to health equity, eliminating disparities, and ensuring access for all communities." },
+  { icon: Users, title: "Collaboration", description: "We work as one team — across disciplines, departments, and campuses — to deliver coordinated care." },
+  { icon: BookOpen, title: "Education", description: "We train the next generation of healthcare leaders through rigorous academic programs and mentorship." },
+  { icon: Sprout, title: "Stewardship", description: "We responsibly manage our resources to sustain our mission for future generations." },
 ];
 
 export default function MissionPage() {
@@ -55,7 +59,7 @@ export default function MissionPage() {
               {values.map((v) => (
                 <Card key={v.title}>
                   <CardContent className="p-6 text-center">
-                    <div className="text-4xl mb-3">{v.icon}</div>
+                    <v.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
                     <h3 className="font-semibold mb-2">{v.title}</h3>
                     <p className="text-sm text-muted-foreground">{v.description}</p>
                   </CardContent>

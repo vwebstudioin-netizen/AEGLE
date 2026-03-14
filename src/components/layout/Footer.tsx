@@ -10,6 +10,7 @@ import {
   SOCIAL_LINKS,
   PROMO_CONFIG,
 } from "@/lib/constants";
+import { Sparkles, MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,8 +20,8 @@ export function Footer() {
       {/* Promo banner (instead of emergency) */}
       {PROMO_CONFIG.enabled && (
         <div className="gradient-gold py-3">
-          <div className="container mx-auto px-4 text-center text-sm font-semibold text-pink-900">
-            ✨ {PROMO_CONFIG.bannerText}
+          <div className="container mx-auto px-4 text-center text-sm font-semibold text-pink-900 flex items-center justify-center gap-1">
+            <Sparkles className="w-3.5 h-3.5" /> {PROMO_CONFIG.bannerText}
           </div>
         </div>
       )}
@@ -38,9 +39,9 @@ export function Footer() {
               {SITE_TAGLINE} — Premium skin care clinic delivering advanced dermatological treatments for radiant, youthful skin.
             </p>
             <div className="space-y-2 text-sm">
-              <p>📍 {CLINIC_ADDRESS}</p>
-              <p>📞 {CONTACT_PHONE}</p>
-              <p>✉️ {CONTACT_EMAIL}</p>
+              <p className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 text-slate-500" /> {CLINIC_ADDRESS}</p>
+              <p className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-slate-500" /> {CONTACT_PHONE}</p>
+              <p className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-slate-500" /> {CONTACT_EMAIL}</p>
             </div>
           </div>
 

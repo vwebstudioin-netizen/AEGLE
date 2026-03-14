@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Trophy } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Awards & Recognition",
@@ -48,8 +49,8 @@ export default function AwardsPage() {
               <Card key={`${award.year}-${award.title}`}>
                 <CardContent className="p-4 flex items-center gap-4">
                   <div className="text-center shrink-0 w-16">
-                    <p className="text-2xl">🏆</p>
-                    <p className="text-xs font-bold text-primary">{award.year}</p>
+                    <Trophy className="w-7 h-7 mx-auto text-secondary" />
+                    <p className="text-xs font-bold text-primary mt-1">{award.year}</p>
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-foreground">{award.title}</h3>

@@ -6,8 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs } from "@/components/ui/tabs";
+import { EmojiIcon } from "@/components/shared/EmojiIcon";
 import { doctors } from "@/data/doctors";
 import { departments } from "@/data/departments";
+import { Trophy } from "lucide-react";
 
 export async function generateStaticParams() {
   return doctors.map((d) => ({ slug: d.slug }));
@@ -108,7 +110,7 @@ export default async function DoctorDetailPage({
                                   key={a}
                                   className="flex items-center gap-2 text-sm text-muted-foreground"
                                 >
-                                  <span className="text-primary">🏆</span> {a}
+                                  <span className="text-primary"><Trophy className="w-4 h-4 inline" /></span> {a}
                                 </li>
                               ))}
                             </ul>
@@ -238,7 +240,7 @@ export default async function DoctorDetailPage({
                         href={`/departments/${dept.slug}`}
                         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                       >
-                        <span>{dept.icon}</span> {dept.name}
+                        <EmojiIcon emoji={dept.icon} className="w-4 h-4" /> {dept.name}
                       </Link>
                     ))}
                   </div>

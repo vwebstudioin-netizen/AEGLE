@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { locations } from "@/data/locations";
 import { formatTime } from "@/lib/utils";
+import { MapPin, Phone, Ambulance } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Locations",
@@ -47,11 +48,11 @@ export default function LocationsPage() {
                         {loc.description}
                       </p>
                       <div className="space-y-1 text-sm text-muted-foreground">
-                        <p>📍 {loc.address.street}, {loc.address.city}</p>
-                        <p>📞 {loc.phone}</p>
+                        <p className="flex items-center gap-1"><MapPin className="w-4 h-4 text-primary shrink-0" /> {loc.address.street}, {loc.address.city}</p>
+                        <p className="flex items-center gap-1"><Phone className="w-4 h-4 text-primary shrink-0" /> {loc.phone}</p>
                         {loc.erAvailable && (
-                          <Badge variant="destructive" className="mt-2">
-                            🚑 ER Available
+                          <Badge variant="destructive" className="mt-2 flex items-center gap-1 w-fit">
+                            <Ambulance className="w-3 h-3" /> ER Available
                           </Badge>
                         )}
                       </div>

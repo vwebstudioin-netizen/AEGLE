@@ -9,6 +9,7 @@ import { departments } from "@/data/departments";
 import { doctors } from "@/data/doctors";
 import { services } from "@/data/services";
 import { SITE_NAME, SITE_TAGLINE, PROMO_CONFIG } from "@/lib/constants";
+import { EmojiIcon } from "@/components/shared/EmojiIcon";
 import {
   CalendarCheck, Sparkles, MapPin, ShoppingBag,
   Star, Phone, ArrowRight, Heart, Shield, Zap, Users,
@@ -154,7 +155,7 @@ export default function HomePage() {
                     <div className="promo-ribbon">{PROMO_CONFIG.badgeText}</div>
                   )}
                   <CardContent className="p-6">
-                    <span className="text-4xl block mb-3">{dept.icon}</span>
+                    <EmojiIcon emoji={dept.icon} className="w-8 h-8 text-primary mb-3" />
                     <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                       {dept.name}
                     </h3>
@@ -276,7 +277,7 @@ export default function HomePage() {
                     <div className="promo-ribbon">{service.promoTag}</div>
                   )}
                   <CardContent className="p-6">
-                    <span className="text-3xl block mb-3">{service.icon}</span>
+                    <EmojiIcon emoji={service.icon} className="w-7 h-7 text-primary mb-3" />
                     <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                       {service.name}
                     </h3>

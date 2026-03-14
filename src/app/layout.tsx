@@ -3,8 +3,10 @@ import { Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
+import { CartProvider } from "@/context/CartContext";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CartDrawer } from "@/components/shared/CartDrawer";
 import AIChatBot from "@/components/shared/AIChatBot";
 import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 
@@ -58,12 +60,15 @@ export default function RootLayout({
       <body className={`${playfair.variable} ${poppins.variable} font-sans antialiased`}>
         <ThemeProvider>
           <AuthProvider>
-            <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-            <AIChatBot />
+            <CartProvider>
+              <div className="flex min-h-screen flex-col">
+                <Header />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
+              <CartDrawer />
+              <AIChatBot />
+            </CartProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>

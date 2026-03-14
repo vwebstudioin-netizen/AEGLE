@@ -3,19 +3,23 @@ import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Stethoscope, Truck, GraduationCap, Brain, Baby, PersonStanding,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Community Outreach",
   description: "AEGLE Skin Care Clinic's community health programs, free screenings, outreach events, and partnerships.",
 };
 
-const programs = [
-  { title: "Free Health Screenings", description: "Monthly community health fairs offering blood pressure, glucose, cholesterol, and BMI screenings at no cost.", icon: "🩺" },
-  { title: "Mobile Health Clinic", description: "Our mobile unit brings primary care, vaccinations, and health education to underserved neighborhoods.", icon: "🚐" },
-  { title: "School Health Initiative", description: "Partnering with local schools for health education, dental screenings, and vision tests for students.", icon: "🏫" },
-  { title: "Mental Health Awareness", description: "Community workshops on stress management, depression screening, and substance abuse prevention.", icon: "🧠" },
-  { title: "Maternal & Child Health", description: "Prenatal education classes, breastfeeding support, and pediatric wellness programs for families.", icon: "👶" },
-  { title: "Senior Wellness Program", description: "Fall prevention, medication management, and social programs for our elderly community members.", icon: "🧓" },
+const programs: { title: string; description: string; icon: LucideIcon }[] = [
+  { title: "Free Health Screenings", description: "Monthly community health fairs offering blood pressure, glucose, cholesterol, and BMI screenings at no cost.", icon: Stethoscope },
+  { title: "Mobile Health Clinic", description: "Our mobile unit brings primary care, vaccinations, and health education to underserved neighborhoods.", icon: Truck },
+  { title: "School Health Initiative", description: "Partnering with local schools for health education, dental screenings, and vision tests for students.", icon: GraduationCap },
+  { title: "Mental Health Awareness", description: "Community workshops on stress management, depression screening, and substance abuse prevention.", icon: Brain },
+  { title: "Maternal & Child Health", description: "Prenatal education classes, breastfeeding support, and pediatric wellness programs for families.", icon: Baby },
+  { title: "Senior Wellness Program", description: "Fall prevention, medication management, and social programs for our elderly community members.", icon: PersonStanding },
 ];
 
 const partnerships = [
@@ -69,7 +73,7 @@ export default function CommunityPage() {
           {programs.map((p) => (
             <Card key={p.title}>
               <CardContent className="p-6">
-                <div className="text-3xl mb-3">{p.icon}</div>
+                <p.icon className="w-8 h-8 mb-3 text-primary" />
                 <h3 className="font-semibold mb-2">{p.title}</h3>
                 <p className="text-sm text-muted-foreground">{p.description}</p>
               </CardContent>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { CalendarCheck, MapPin } from "lucide-react";
 
 const appointments = [
   { id: "1", doctor: "Dr. Sarah Chen", specialty: "Cardiology", date: "Jan 15, 2025", time: "10:00 AM", location: "Main Campus", status: "confirmed", type: "Follow-Up" },
@@ -41,7 +42,7 @@ export default function PortalAppointmentsPage() {
                   </Badge>
                 </div>
                 <p className="text-sm text-muted-foreground">{apt.specialty} — {apt.type}</p>
-                <p className="text-sm text-muted-foreground">📅 {apt.date} at {apt.time} | 📍 {apt.location}</p>
+                <p className="text-sm text-muted-foreground flex items-center gap-1 flex-wrap"><CalendarCheck className="w-4 h-4 inline" /> {apt.date} at {apt.time} | <MapPin className="w-4 h-4 inline" /> {apt.location}</p>
               </div>
               {apt.status !== "completed" && (
                 <div className="flex gap-2">

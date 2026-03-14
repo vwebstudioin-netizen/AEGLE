@@ -1,16 +1,18 @@
 import Link from "next/link";
 import { SITE_NAME } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
+import { Award, Crown, Gem, Sparkles, Check } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export const metadata = {
   title: `Loyalty Program — ${SITE_NAME}`,
   description: "Join the AEGLE Glow Rewards program. Earn points on every treatment, get exclusive discounts, birthday perks, and priority access to new treatments.",
 };
 
-const tiers = [
-  { name: "Silver", minSpend: "₹0", icon: "🥈", perks: ["5% cashback on treatments", "Birthday discount 10%", "Free skin analysis session", "Early access to offers"], color: "bg-gray-100 border-gray-300" },
-  { name: "Gold", minSpend: "₹25,000", icon: "🥇", perks: ["10% cashback on treatments", "Birthday discount 20%", "Free monthly facial", "Priority appointments", "Exclusive product samples"], color: "bg-yellow-50 border-yellow-300" },
-  { name: "Platinum", minSpend: "₹75,000", icon: "💎", perks: ["15% cashback on treatments", "Birthday discount 30%", "Free monthly premium treatment", "Dedicated skin consultant", "VIP event invitations", "Complimentary products every quarter"], color: "bg-primary/5 border-primary/30" },
+const tiers: { name: string; minSpend: string; icon: LucideIcon; perks: string[]; color: string }[] = [
+  { name: "Silver", minSpend: "₹0", icon: Award, perks: ["5% cashback on treatments", "Birthday discount 10%", "Free skin analysis session", "Early access to offers"], color: "bg-gray-100 border-gray-300" },
+  { name: "Gold", minSpend: "₹25,000", icon: Crown, perks: ["10% cashback on treatments", "Birthday discount 20%", "Free monthly facial", "Priority appointments", "Exclusive product samples"], color: "bg-yellow-50 border-yellow-300" },
+  { name: "Platinum", minSpend: "₹75,000", icon: Gem, perks: ["15% cashback on treatments", "Birthday discount 30%", "Free monthly premium treatment", "Dedicated skin consultant", "VIP event invitations", "Complimentary products every quarter"], color: "bg-primary/5 border-primary/30" },
 ];
 
 const howItWorks = [
@@ -26,7 +28,7 @@ export default function LoyaltyPage() {
       {/* Hero */}
       <section className="gradient-hero text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <span className="text-5xl block mb-4">✨</span>
+          <Sparkles className="w-12 h-12 mx-auto mb-4 text-white/90" />
           <h1 className="text-3xl lg:text-5xl font-bold mb-4">AEGLE Glow Rewards</h1>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Your skin care journey deserves rewards. Earn points on every treatment, unlock exclusive perks, and enjoy VIP benefits.
@@ -65,14 +67,14 @@ export default function LoyaltyPage() {
             {tiers.map((tier) => (
               <div key={tier.name} className={`rounded-xl border-2 ${tier.color} p-7 bg-card`}>
                 <div className="text-center mb-6">
-                  <span className="text-4xl block mb-2">{tier.icon}</span>
+                  <tier.icon className="w-10 h-10 mx-auto mb-2 text-primary" />
                   <h3 className="text-2xl font-bold">{tier.name}</h3>
                   <p className="text-sm text-muted-foreground mt-1">Min. annual spend: {tier.minSpend}</p>
                 </div>
                 <ul className="space-y-3">
                   {tier.perks.map((perk) => (
                     <li key={perk} className="flex items-start gap-2 text-sm">
-                      <span className="text-primary mt-0.5">✓</span>
+                      <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                       <span>{perk}</span>
                     </li>
                   ))}

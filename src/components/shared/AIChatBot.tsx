@@ -94,7 +94,7 @@ export default function AIChatBot() {
         body: JSON.stringify({ messages: history }),
       });
       const data = await res.json();
-      return data.reply || "Could you say that again? 😊";
+      return data.reply || "Could you say that again?";
     } catch {
       return `I'm having a brief issue. Please call us at ${CONTACT_PHONE}! 💜`;
     }
@@ -272,7 +272,7 @@ export default function AIChatBot() {
         <div className="fixed bottom-6 right-6 z-50">
           {showTooltip && (
             <div className="absolute -top-12 right-0 bg-primary text-white text-xs px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap animate-fade-in">
-              Need skin care help? Chat with Aura! ✨
+              Need skin care help? Chat with Aura!
               <div className="absolute bottom-0 right-5 translate-y-1/2 rotate-45 w-2 h-2 bg-primary" />
             </div>
           )}
@@ -295,7 +295,9 @@ export default function AIChatBot() {
           {/* Header */}
           <div className="bg-primary px-5 py-3.5 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-lg">✨</div>
+              <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg>
+              </div>
               <div>
                 <p className="text-white font-semibold text-sm leading-tight">Aura — AI Assistant</p>
                 <p className="text-white/60 text-[11px]">{SITE_NAME} Skin Care · Powered by AI</p>
@@ -358,7 +360,7 @@ export default function AIChatBot() {
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={enquirySubmitted ? "Enquiry submitted ✅" : "Type a message…"}
+                placeholder={enquirySubmitted ? "Enquiry submitted" : "Type a message…"}
                 disabled={loading || enquirySubmitted}
                 className="flex-1 h-10 px-4 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm outline-none focus:border-primary transition-colors disabled:opacity-50"
               />
@@ -373,7 +375,7 @@ export default function AIChatBot() {
                 </svg>
               </button>
             </form>
-            <p className="text-[10px] text-gray-400 text-center mt-1.5">Powered by {SITE_NAME} AI • Your data is secure 🔒</p>
+            <p className="text-[10px] text-gray-400 text-center mt-1.5">Powered by {SITE_NAME} AI • Your data is secure</p>
           </div>
         </div>
       )}

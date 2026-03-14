@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { billingFaqs } from "@/data/faq";
+import { CheckCircle, Lock, CreditCard, Building, Smartphone, Wallet, Landmark, Phone } from "lucide-react";
 
 declare global {
   interface Window {
@@ -92,7 +93,7 @@ export default function BillingPage() {
               {status === "success" ? (
                 <Card>
                   <CardContent className="p-8 text-center">
-                    <div className="text-5xl mb-4">✅</div>
+                    <div className="flex justify-center mb-4"><CheckCircle className="w-12 h-12 text-green-600" /></div>
                     <h2 className="text-2xl font-bold mb-2 text-green-600">Payment Successful!</h2>
                     <p className="text-muted-foreground mb-6">
                       Your payment has been processed successfully. A receipt has been sent to your email.
@@ -173,7 +174,7 @@ export default function BillingPage() {
                           </Button>
                         </div>
                         <div className="flex items-center gap-2 pt-2">
-                          <Badge variant="outline" className="text-xs">🔒 Secured by Razorpay</Badge>
+                          <Badge variant="outline" className="text-xs flex items-center gap-1"><Lock className="w-3 h-3" /> Secured by Razorpay</Badge>
                           <Badge variant="outline" className="text-xs">PCI DSS Compliant</Badge>
                         </div>
                       </>
@@ -188,12 +189,12 @@ export default function BillingPage() {
                 <CardContent className="p-6 space-y-3 text-sm">
                   <h3 className="font-semibold text-foreground">Payment Methods</h3>
                   <p className="text-muted-foreground">We accept:</p>
-                  <ul className="space-y-1 text-muted-foreground">
-                    <li>💳 Credit & Debit Cards</li>
-                    <li>🏦 Net Banking</li>
-                    <li>📱 UPI (Google Pay, PhonePe, etc.)</li>
-                    <li>👛 Wallets (Paytm, etc.)</li>
-                    <li>🏧 EMI Options</li>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li className="flex items-center gap-2"><CreditCard className="w-4 h-4 text-primary" /> Credit & Debit Cards</li>
+                    <li className="flex items-center gap-2"><Building className="w-4 h-4 text-primary" /> Net Banking</li>
+                    <li className="flex items-center gap-2"><Smartphone className="w-4 h-4 text-primary" /> UPI (Google Pay, PhonePe, etc.)</li>
+                    <li className="flex items-center gap-2"><Wallet className="w-4 h-4 text-primary" /> Wallets (Paytm, etc.)</li>
+                    <li className="flex items-center gap-2"><Landmark className="w-4 h-4 text-primary" /> EMI Options</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -204,8 +205,8 @@ export default function BillingPage() {
                   <p className="text-muted-foreground">
                     Contact our billing department for questions about your bill.
                   </p>
-                  <p>
-                    📞{" "}
+                  <p className="flex items-center gap-1">
+                    <Phone className="w-4 h-4 text-primary" />{" "}
                     <a href="tel:+18005559012" className="text-primary font-medium">
                       (800) 555-9012
                     </a>

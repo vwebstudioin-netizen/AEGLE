@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { EmojiIcon } from "@/components/shared/EmojiIcon";
 import type { DepartmentData } from "@/types";
 
 interface DepartmentCardProps {
@@ -21,7 +22,7 @@ export function DepartmentCard({ department }: DepartmentCardProps) {
         )}
         <CardHeader>
           <div className="flex items-center gap-3">
-            <span className="text-3xl">{department.icon}</span>
+            <EmojiIcon emoji={department.icon} className="w-7 h-7 text-primary" />
             <CardTitle className="text-lg">{department.name}</CardTitle>
           </div>
         </CardHeader>

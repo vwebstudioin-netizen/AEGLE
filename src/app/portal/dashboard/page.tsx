@@ -4,14 +4,24 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { CalendarCheck, Microscope, Pill, Mail, CreditCard, User } from "lucide-react";
+
+const quickLinkIcons: Record<string, React.ReactNode> = {
+  "/portal/appointments": <CalendarCheck className="w-7 h-7 text-primary" />,
+  "/portal/test-results": <Microscope className="w-7 h-7 text-primary" />,
+  "/portal/medications": <Pill className="w-7 h-7 text-primary" />,
+  "/portal/messages": <Mail className="w-7 h-7 text-primary" />,
+  "/portal/billing": <CreditCard className="w-7 h-7 text-primary" />,
+  "/portal/profile": <User className="w-7 h-7 text-primary" />,
+};
 
 const quickLinks = [
-  { label: "My Appointments", href: "/portal/appointments", icon: "📅", count: 2 },
-  { label: "Test Results", href: "/portal/test-results", icon: "🔬", count: 3 },
-  { label: "Medications", href: "/portal/medications", icon: "💊", count: 5 },
-  { label: "Messages", href: "/portal/messages", icon: "✉️", count: 1 },
-  { label: "Billing", href: "/portal/billing", icon: "💳", count: 0 },
-  { label: "My Profile", href: "/portal/profile", icon: "👤", count: 0 },
+  { label: "My Appointments", href: "/portal/appointments", count: 2 },
+  { label: "Test Results", href: "/portal/test-results", count: 3 },
+  { label: "Medications", href: "/portal/medications", count: 5 },
+  { label: "Messages", href: "/portal/messages", count: 1 },
+  { label: "Billing", href: "/portal/billing", count: 0 },
+  { label: "My Profile", href: "/portal/profile", count: 0 },
 ];
 
 export default function PortalDashboardPage() {
@@ -56,7 +66,7 @@ export default function PortalDashboardPage() {
             <Link key={link.href} href={link.href}>
               <Card className="hover:shadow-md transition-all hover:-translate-y-1 h-full">
                 <CardContent className="p-4 text-center relative">
-                  <span className="text-3xl">{link.icon}</span>
+                  {quickLinkIcons[link.href]}
                   <p className="text-sm font-medium mt-2">{link.label}</p>
                   {link.count > 0 && (
                     <Badge variant="destructive" className="absolute -top-1 -right-1 text-xs">

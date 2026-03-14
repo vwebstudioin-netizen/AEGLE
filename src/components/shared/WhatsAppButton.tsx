@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { FiX } from 'react-icons/fi';
+import { Sparkles } from 'lucide-react';
 
 interface WhatsAppButtonProps {
   whatsapp?: string;
@@ -30,7 +31,7 @@ export default function WhatsAppButton({ whatsapp = '918050507755' }: WhatsAppBu
       {tooltip && (
         <div className="flex items-center gap-2 bg-white rounded-xl shadow-lg px-4 py-2 border border-pink-100 animate-fade-in">
           <p className="text-sm text-foreground whitespace-nowrap">
-            Chat with us on WhatsApp! ✨
+            Chat with us on WhatsApp! <Sparkles className="w-4 h-4 inline text-pink-400" />
           </p>
           <button
             onClick={() => setTooltip(false)}

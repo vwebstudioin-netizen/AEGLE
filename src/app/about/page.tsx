@@ -3,6 +3,11 @@ import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/shared/SectionHeader";
+import {
+  Heart, Star, HandHeart, Microscope, Leaf, Users,
+  Scroll, Target, ShieldCheck,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -10,13 +15,13 @@ export const metadata: Metadata = {
     "Learn about AEGLE Skin Care Clinic — our history, mission, leadership, awards, and commitment to world-class healthcare.",
 };
 
-const values = [
-  { icon: "❤️", title: "Compassion", description: "We treat every patient with dignity, empathy, and respect." },
-  { icon: "🏆", title: "Excellence", description: "We pursue the highest standards in clinical care, research, and education." },
-  { icon: "🤝", title: "Integrity", description: "We operate with transparency, honesty, and ethical responsibility." },
-  { icon: "🔬", title: "Innovation", description: "We embrace new technologies and methods to improve patient outcomes." },
-  { icon: "🌍", title: "Diversity", description: "We celebrate diversity and provide equitable care for all communities." },
-  { icon: "👥", title: "Teamwork", description: "We collaborate across disciplines to deliver the best possible care." },
+const values: { icon: LucideIcon; title: string; description: string }[] = [
+  { icon: Heart, title: "Compassion", description: "We treat every patient with dignity, empathy, and respect." },
+  { icon: Star, title: "Excellence", description: "We pursue the highest standards in clinical care, research, and education." },
+  { icon: HandHeart, title: "Integrity", description: "We operate with transparency, honesty, and ethical responsibility." },
+  { icon: Microscope, title: "Innovation", description: "We embrace new technologies and methods to improve patient outcomes." },
+  { icon: Leaf, title: "Diversity", description: "We celebrate diversity and provide equitable care for all communities." },
+  { icon: Users, title: "Teamwork", description: "We collaborate across disciplines to deliver the best possible care." },
 ];
 
 const milestones = [
@@ -97,7 +102,7 @@ export default function AboutPage() {
             {values.map((value) => (
               <Card key={value.title}>
                 <CardContent className="p-6 text-center">
-                  <span className="text-4xl block mb-3">{value.icon}</span>
+                  <value.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
                   <h3 className="font-semibold text-foreground mb-2">
                     {value.title}
                   </h3>
@@ -148,17 +153,17 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { label: "Leadership", href: "/about/leadership", icon: "👥" },
-              { label: "History", href: "/about/history", icon: "📜" },
-              { label: "Awards", href: "/about/awards", icon: "🏆" },
-              { label: "Mission & Values", href: "/about/mission", icon: "🎯" },
-              { label: "Quality & Safety", href: "/about/quality", icon: "✅" },
-              { label: "Community", href: "/about/community", icon: "🌍" },
+              { label: "Leadership", href: "/about/leadership", icon: Users },
+              { label: "History", href: "/about/history", icon: Scroll },
+              { label: "Awards", href: "/about/awards", icon: Star },
+              { label: "Mission & Values", href: "/about/mission", icon: Target },
+              { label: "Quality & Safety", href: "/about/quality", icon: ShieldCheck },
+              { label: "Community", href: "/about/community", icon: Leaf },
             ].map((item) => (
               <Link key={item.href} href={item.href}>
                 <Card className="text-center p-4 hover:shadow-md transition-shadow h-full">
                   <CardContent className="p-0">
-                    <span className="text-2xl block mb-1">{item.icon}</span>
+                    <item.icon className="w-6 h-6 mx-auto mb-1 text-primary" />
                     <span className="text-sm font-medium">{item.label}</span>
                   </CardContent>
                 </Card>

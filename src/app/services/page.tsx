@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { EmojiIcon } from "@/components/shared/EmojiIcon";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default function ServicesPage() {
                       <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1">
                         <CardHeader>
                           <div className="flex items-center gap-3">
-                            <span className="text-3xl">{service.icon}</span>
+                            <EmojiIcon emoji={service.icon} className="w-7 h-7 text-primary" />
                             <CardTitle className="text-lg">
                               {service.name}
                             </CardTitle>

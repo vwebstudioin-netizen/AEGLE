@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { SITE_NAME } from "@/lib/constants";
+import { Sparkles } from "lucide-react";
 
 export default function PortalLoginPage() {
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function PortalLoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <div className="text-3xl font-bold text-primary mb-2">✨</div>
+          <div className="flex justify-center mb-2"><Sparkles className="w-8 h-8 text-primary" /></div>
           <CardTitle className="text-xl">
             {mode === "login" ? "Patient Portal Login" : "Create Account"}
           </CardTitle>
