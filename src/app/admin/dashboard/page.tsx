@@ -30,7 +30,7 @@ const stats = [
 ];
 
 const quickActions = [
-  { label: "Chat Enquiries", href: "/admin/enquiries", icon: MessageSquare, color: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400" },
+  { label: "Chat Enquiries", href: "/admin/enquiries", icon: MessageSquare, color: "bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-400" },
   { label: "Shop / Products", href: "/admin/shop", icon: ShoppingBag, color: "bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400" },
   { label: "Manage Doctors", href: "/admin/doctors", icon: Users, color: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400" },
   { label: "Departments", href: "/admin/departments", icon: Building2, color: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400" },
@@ -130,7 +130,7 @@ export default function AdminDashboardPage() {
                 {recentActivity.map((activity, index) => (
                   <div key={index} className="flex items-start gap-3 pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0 last:pb-0">
                     <div className={`w-2 h-2 rounded-full mt-2 ${
-                      activity.type === "enquiry" ? "bg-purple-500" :
+                      activity.type === "enquiry" ? "bg-pink-500" :
                       activity.type === "payment" ? "bg-green-500" :
                       activity.type === "appointment" ? "bg-blue-500" :
                       activity.type === "review" ? "bg-yellow-500" :

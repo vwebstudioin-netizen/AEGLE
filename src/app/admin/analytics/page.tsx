@@ -31,7 +31,7 @@ const pageViews = [
 const trafficSources = [
   { source: "Organic Search", percentage: 42, color: "bg-blue-500" },
   { source: "Direct", percentage: 28, color: "bg-green-500" },
-  { source: "Referral", percentage: 15, color: "bg-purple-500" },
+  { source: "Referral", percentage: 15, color: "bg-pink-500" },
   { source: "Social Media", percentage: 10, color: "bg-orange-500" },
   { source: "Email", percentage: 5, color: "bg-pink-500" },
 ];
@@ -81,7 +81,7 @@ export default function AdminAnalyticsPage() {
           </Card>
           <Card>
             <CardContent className="p-6 text-center">
-              <Calendar className="w-8 h-8 mx-auto text-purple-600 mb-2" />
+              <Calendar className="w-8 h-8 mx-auto text-pink-600 mb-2" />
               <p className="text-3xl font-bold text-gray-900 dark:text-white">3,450</p>
               <p className="text-sm text-gray-500">Appointments Booked</p>
             </CardContent>

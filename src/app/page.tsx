@@ -25,7 +25,7 @@ export default function HomePage() {
       {/* ── Promo Banner ── */}
       {PROMO_CONFIG.enabled && (
         <div className="gradient-gold text-center py-2.5 px-4">
-          <div className="container mx-auto flex items-center justify-center gap-3 text-sm font-semibold text-purple-900">
+          <div className="container mx-auto flex items-center justify-center gap-3 text-sm font-semibold text-pink-900">
             <span>{PROMO_CONFIG.bannerText}</span>
             <Link href={PROMO_CONFIG.ctaHref}>
               <Button size="sm" className="bg-primary text-white hover:bg-primary-dark h-7 text-xs">

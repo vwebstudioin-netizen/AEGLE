@@ -126,7 +126,7 @@ export const SOCIAL_LINKS = {
 
 export const APPOINTMENT_STATUSES = {
   pending: { label: "Pending", color: "bg-yellow-100 text-yellow-800" },
-  confirmed: { label: "Confirmed", color: "bg-purple-100 text-purple-800" },
+  confirmed: { label: "Confirmed", color: "bg-pink-100 text-pink-800" },
   completed: { label: "Completed", color: "bg-green-100 text-green-800" },
   cancelled: { label: "Cancelled", color: "bg-red-100 text-red-800" },
   "no-show": { label: "No Show", color: "bg-gray-100 text-gray-800" },

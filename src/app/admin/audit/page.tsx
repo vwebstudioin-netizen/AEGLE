@@ -25,7 +25,7 @@ const actionColors: Record<string, string> = {
   Create: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
   Update: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
   Delete: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
-  Settings: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400",
+  Settings: "bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-400",
 };
 
 export default function AdminAuditPage() {

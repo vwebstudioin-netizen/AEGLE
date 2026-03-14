@@ -16,7 +16,7 @@ const records = [
 ];
 
 function getTypeBadge(type: string) {
-  const colors: Record<string, string> = { "Visit Summary": "bg-blue-100 text-blue-800", "Lab Results": "bg-green-100 text-green-800", "Imaging": "bg-purple-100 text-purple-800", "Immunizations": "bg-yellow-100 text-yellow-800" };
+  const colors: Record<string, string> = { "Visit Summary": "bg-blue-100 text-blue-800", "Lab Results": "bg-green-100 text-green-800", "Imaging": "bg-pink-100 text-pink-800", "Immunizations": "bg-yellow-100 text-yellow-800" };
   return colors[type] || "";
 }
 

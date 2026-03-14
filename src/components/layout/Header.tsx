@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -65,9 +66,7 @@ export function Header() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 shrink-0">
-              <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">✨</span>
-              </div>
+              <Image src="/logo-icon.svg" alt="AEGLE" width={40} height={40} className="rounded-lg" priority />
               <div className="hidden sm:block">
                 <span className="font-bold text-lg text-foreground leading-none">
                   {SITE_NAME}

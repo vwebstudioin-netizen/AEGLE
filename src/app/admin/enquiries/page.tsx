@@ -96,7 +96,7 @@ export default function AdminEnquiriesPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-purple-800 text-white">
+      <header className="bg-pink-800 text-white">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/admin/dashboard" className="text-white/70 hover:text-white">
@@ -106,7 +106,7 @@ export default function AdminEnquiriesPage() {
               <h1 className="text-lg font-bold flex items-center gap-2">
                 <MessageSquare className="w-5 h-5" /> Chat Enquiries
               </h1>
-              <p className="text-purple-200 text-xs">AI Chatbot Leads — AEGLE Skin Care Clinic</p>
+              <p className="text-pink-200 text-xs">AI Chatbot Leads — AEGLE Skin Care Clinic</p>
             </div>
           </div>
           <Button onClick={fetchEnquiries} variant="outline" size="sm" className="text-white border-white/30 hover:bg-white/10">
@@ -119,7 +119,7 @@ export default function AdminEnquiriesPage() {
         {/* Stats Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: "Total Enquiries", value: stats.total, icon: MessageSquare, color: "text-purple-600" },
+            { label: "Total Enquiries", value: stats.total, icon: MessageSquare, color: "text-pink-600" },
             { label: "New (Pending)", value: stats.new, icon: AlertCircle, color: "text-blue-600" },
             { label: "Contacted", value: stats.contacted, icon: PhoneCall, color: "text-yellow-600" },
             { label: "Converted", value: stats.converted, icon: CheckCircle, color: "text-green-600" },
@@ -148,7 +148,7 @@ export default function AdminEnquiriesPage() {
                 onClick={() => setFilter(f)}
                 className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer ${
                   filter === f
-                    ? "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300"
+                    ? "bg-pink-100 text-pink-800 dark:bg-pink-900/40 dark:text-pink-300"
                     : "text-gray-500 hover:text-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
                 }`}
               >
@@ -162,7 +162,7 @@ export default function AdminEnquiriesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name, phone, or interest…"
-              className="w-full h-9 pl-9 pr-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-400"
+              className="w-full h-9 pl-9 pr-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-400"
             />
           </div>
         </div>
@@ -207,8 +207,8 @@ export default function AdminEnquiriesPage() {
                         <tr key={enq.id} className="border-b border-gray-50 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
                           <td className="px-5 py-3.5">
                             <div className="flex items-center gap-2.5">
-                              <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center">
-                                <User className="w-4 h-4 text-purple-600" />
+                              <div className="w-8 h-8 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center">
+                                <User className="w-4 h-4 text-pink-600" />
                               </div>
                               <div>
                                 <p className="text-sm font-medium text-gray-900 dark:text-white">{enq.name}</p>
@@ -217,7 +217,7 @@ export default function AdminEnquiriesPage() {
                             </div>
                           </td>
                           <td className="px-5 py-3.5">
-                            <a href={`tel:${enq.phone}`} className="text-sm text-purple-600 hover:underline flex items-center gap-1">
+                            <a href={`tel:${enq.phone}`} className="text-sm text-pink-600 hover:underline flex items-center gap-1">
                               <Phone className="w-3 h-3" /> {enq.phone}
                             </a>
                           </td>

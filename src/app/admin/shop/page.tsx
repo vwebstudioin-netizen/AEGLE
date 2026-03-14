@@ -241,7 +241,7 @@ export default function AdminShopPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-purple-800 text-white">
+      <header className="bg-pink-800 text-white">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/admin/dashboard" className="text-white/70 hover:text-white">
@@ -250,10 +250,10 @@ export default function AdminShopPage() {
             <ShoppingBag className="w-6 h-6" />
             <div>
               <h1 className="text-lg font-bold">Shop Manager</h1>
-              <p className="text-purple-200 text-xs">AEGLE Product Catalogue</p>
+              <p className="text-pink-200 text-xs">AEGLE Product Catalogue</p>
             </div>
           </div>
-          <Button onClick={handleAdd} className="bg-white text-purple-800 hover:bg-purple-50">
+          <Button onClick={handleAdd} className="bg-white text-pink-800 hover:bg-pink-50">
             <Plus className="w-4 h-4 mr-1" /> Add Product
           </Button>
         </div>
@@ -264,7 +264,7 @@ export default function AdminShopPage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <Card>
             <CardContent className="p-4 text-center">
-              <Package className="w-6 h-6 mx-auto text-purple-600 mb-1" />
+              <Package className="w-6 h-6 mx-auto text-pink-600 mb-1" />
               <p className="text-2xl font-bold">{totalProducts}</p>
               <p className="text-xs text-gray-500">Total Products</p>
             </CardContent>
@@ -301,7 +301,7 @@ export default function AdminShopPage() {
               placeholder="Search products by name, SKU, or category..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+              className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
             />
           </div>
           <select
@@ -348,7 +348,7 @@ export default function AdminShopPage() {
                       <tr key={product.id} className="border-b last:border-0 hover:bg-gray-50 dark:hover:bg-gray-800/30">
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 flex-shrink-0 overflow-hidden">
+                            <div className="w-10 h-10 rounded-lg bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center text-pink-600 flex-shrink-0 overflow-hidden">
                               {product.thumbnail ? (
                                 <img src={product.thumbnail} alt="" className="w-full h-full object-cover rounded-lg" />
                               ) : (
@@ -362,7 +362,7 @@ export default function AdminShopPage() {
                           </div>
                         </td>
                         <td className="px-4 py-3">
-                          <span className="text-xs px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
+                          <span className="text-xs px-2 py-0.5 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full">
                             {product.category}
                           </span>
                         </td>
@@ -400,7 +400,7 @@ export default function AdminShopPage() {
                           <div className="flex items-center justify-center gap-1">
                             <button
                               onClick={() => handleEdit(product)}
-                              className="p-1.5 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 text-purple-600 cursor-pointer"
+                              className="p-1.5 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-900/30 text-pink-600 cursor-pointer"
                               title="Edit"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -449,7 +449,7 @@ export default function AdminShopPage() {
               <div>
                 <label className="block text-sm font-medium mb-1.5">Product Image</label>
                 <div
-                  className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-6 text-center cursor-pointer hover:border-purple-400 transition"
+                  className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-6 text-center cursor-pointer hover:border-pink-400 transition"
                   onClick={() => fileInputRef.current?.click()}
                 >
                   {imagePreview ? (
@@ -481,7 +481,7 @@ export default function AdminShopPage() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Vitamin C Serum"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   />
                 </div>
                 <div>
@@ -491,7 +491,7 @@ export default function AdminShopPage() {
                     value={formData.sku}
                     onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
                     placeholder="AEGLE-VCS-001"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   />
                 </div>
               </div>
@@ -505,7 +505,7 @@ export default function AdminShopPage() {
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Brief product description for cards and listings"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500 resize-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500 resize-none"
                 />
               </div>
 
@@ -517,7 +517,7 @@ export default function AdminShopPage() {
                   value={formData.longDescription}
                   onChange={(e) => setFormData({ ...formData, longDescription: e.target.value })}
                   placeholder="Full product page description"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500 resize-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500 resize-none"
                 />
               </div>
 
@@ -533,7 +533,7 @@ export default function AdminShopPage() {
                     value={formData.price}
                     onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                     placeholder="1299"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   />
                 </div>
                 <div>
@@ -545,7 +545,7 @@ export default function AdminShopPage() {
                     value={formData.comparePrice}
                     onChange={(e) => setFormData({ ...formData, comparePrice: e.target.value })}
                     placeholder="1599 (strike-through)"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   />
                 </div>
                 <div>
@@ -555,7 +555,7 @@ export default function AdminShopPage() {
                     min="0"
                     value={formData.stock}
                     onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   />
                 </div>
               </div>
@@ -568,7 +568,7 @@ export default function AdminShopPage() {
                     required
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   >
                     {PRODUCT_CATEGORIES.map((cat) => (
                       <option key={cat} value={cat}>{cat}</option>
@@ -581,7 +581,7 @@ export default function AdminShopPage() {
                     type="text"
                     value={formData.brand}
                     onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   />
                 </div>
               </div>
@@ -594,7 +594,7 @@ export default function AdminShopPage() {
                   value={formData.tags}
                   onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
                   placeholder="brightening, vitamin-c, bestseller"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                 />
               </div>
 
@@ -607,7 +607,7 @@ export default function AdminShopPage() {
                     value={formData.weight}
                     onChange={(e) => setFormData({ ...formData, weight: e.target.value })}
                     placeholder="50g"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   />
                 </div>
                 <div>
@@ -617,7 +617,7 @@ export default function AdminShopPage() {
                     value={formData.volume}
                     onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
                     placeholder="30ml"
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                   />
                 </div>
               </div>
@@ -630,7 +630,7 @@ export default function AdminShopPage() {
                   value={formData.ingredients}
                   onChange={(e) => setFormData({ ...formData, ingredients: e.target.value })}
                   placeholder="Vitamin C, Hyaluronic Acid, Niacinamide..."
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500 resize-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500 resize-none"
                 />
               </div>
 
@@ -642,7 +642,7 @@ export default function AdminShopPage() {
                   value={formData.howToUse}
                   onChange={(e) => setFormData({ ...formData, howToUse: e.target.value })}
                   placeholder="Apply 2-3 drops on cleansed face..."
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500 resize-none"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500 resize-none"
                 />
               </div>
 
@@ -654,7 +654,7 @@ export default function AdminShopPage() {
                   value={formData.suitableFor}
                   onChange={(e) => setFormData({ ...formData, suitableFor: e.target.value })}
                   placeholder="All skin types, Oily skin, Sensitive skin"
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-purple-500"
+                  className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm outline-none focus:border-pink-500"
                 />
               </div>
 
@@ -665,7 +665,7 @@ export default function AdminShopPage() {
                     type="checkbox"
                     checked={formData.featured}
                     onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
-                    className="w-4 h-4 rounded accent-purple-600"
+                    className="w-4 h-4 rounded accent-pink-600"
                   />
                   <span className="text-sm font-medium">⭐ Featured product</span>
                 </label>
@@ -685,7 +685,7 @@ export default function AdminShopPage() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="bg-purple-700 hover:bg-purple-800 text-white px-8"
+                  className="bg-pink-700 hover:bg-pink-800 text-white px-8"
                 >
                   {submitting ? (
                     <><Loader2 className="w-4 h-4 mr-1 animate-spin" /> Saving...</>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   SITE_NAME,
   SITE_TAGLINE,
@@ -18,7 +19,7 @@ export function Footer() {
       {/* Promo banner (instead of emergency) */}
       {PROMO_CONFIG.enabled && (
         <div className="gradient-gold py-3">
-          <div className="container mx-auto px-4 text-center text-sm font-semibold text-purple-900">
+          <div className="container mx-auto px-4 text-center text-sm font-semibold text-pink-900">
             ✨ {PROMO_CONFIG.bannerText}
           </div>
         </div>
@@ -30,9 +31,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">✨</span>
-              </div>
+              <Image src="/logo-icon.svg" alt="AEGLE" width={40} height={40} className="rounded-lg" />
               <span className="font-bold text-lg text-white">{SITE_NAME}</span>
             </Link>
             <p className="text-sm text-slate-400 mb-4">

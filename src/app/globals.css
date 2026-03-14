@@ -1,45 +1,45 @@
 @import "tailwindcss";
 
 /* ── AEGLE — Goddess of Radiant Health & Beauty ── */
-/* Deep Purple + Gold luxury skin care palette */
+/* Rose Pink + Gold luxury skin care palette */
 
 :root {
-  --background: #faf8fc;
-  --foreground: #1a1025;
-  --primary: #6B21A8;
-  --primary-dark: #581C87;
-  --primary-light: #A855F7;
+  --background: #fdf2f8;
+  --foreground: #1a0d14;
+  --primary: #BE185D;
+  --primary-dark: #9D174D;
+  --primary-light: #F472B6;
   --secondary: #D4AF37;
   --accent: #F5D061;
-  --muted: #f3f0f7;
-  --muted-foreground: #6b6080;
-  --border: #e8e0f0;
-  --ring: #6B21A8;
+  --muted: #fce7f3;
+  --muted-foreground: #7a5068;
+  --border: #f3d4e4;
+  --ring: #BE185D;
   --success: #16a34a;
   --warning: #f59e0b;
   --error: #dc2626;
   --card: #ffffff;
-  --card-foreground: #1a1025;
+  --card-foreground: #1a0d14;
   --destructive: #dc2626;
 }
 
 .dark {
-  --background: #0d0915;
-  --foreground: #f0eaf5;
-  --primary: #A855F7;
-  --primary-dark: #9333EA;
-  --primary-light: #C084FC;
+  --background: #150911;
+  --foreground: #fce7f3;
+  --primary: #F472B6;
+  --primary-dark: #EC4899;
+  --primary-light: #F9A8D4;
   --secondary: #F5D061;
   --accent: #D4AF37;
-  --muted: #1e1530;
-  --muted-foreground: #a09ab0;
-  --border: #2d2240;
-  --ring: #A855F7;
+  --muted: #2a101e;
+  --muted-foreground: #c9a0b5;
+  --border: #3d1a2e;
+  --ring: #F472B6;
   --success: #22c55e;
   --warning: #fbbf24;
   --error: #ef4444;
-  --card: #150f22;
-  --card-foreground: #f5f0fa;
+  --card: #1e0c16;
+  --card-foreground: #fdf2f8;
   --destructive: #ef4444;
 }
 
@@ -116,7 +116,7 @@ html {
 
 /* Luxury gradient backgrounds */
 .gradient-hero {
-  background: linear-gradient(135deg, #581C87 0%, #6B21A8 30%, #A855F7 70%, #D4AF37 100%);
+  background: linear-gradient(135deg, #9D174D 0%, #BE185D 30%, #F472B6 70%, #D4AF37 100%);
 }
 
 .gradient-gold {
