@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* ── AEGLE — Goddess of Radiant Health & Beauty ── */
+/* Deep Purple + Gold luxury skin care palette */
+
+:root {
+  --background: #faf8fc;
+  --foreground: #1a1025;
+  --primary: #6B21A8;
+  --primary-dark: #581C87;
+  --primary-light: #A855F7;
+  --secondary: #D4AF37;
+  --accent: #F5D061;
+  --muted: #f3f0f7;
+  --muted-foreground: #6b6080;
+  --border: #e8e0f0;
+  --ring: #6B21A8;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --error: #dc2626;
+  --card: #ffffff;
+  --card-foreground: #1a1025;
+  --destructive: #dc2626;
+}
+
+.dark {
+  --background: #0d0915;
+  --foreground: #f0eaf5;
+  --primary: #A855F7;
+  --primary-dark: #9333EA;
+  --primary-light: #C084FC;
+  --secondary: #F5D061;
+  --accent: #D4AF37;
+  --muted: #1e1530;
+  --muted-foreground: #a09ab0;
+  --border: #2d2240;
+  --ring: #A855F7;
+  --success: #22c55e;
+  --warning: #fbbf24;
+  --error: #ef4444;
+  --card: #150f22;
+  --card-foreground: #f5f0fa;
+  --destructive: #ef4444;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-destructive: var(--destructive);
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-playfair);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+.leaflet-container {
+  z-index: 1;
+}
+
+/* Promo ribbon for treatment cards */
+.promo-ribbon {
+  position: absolute;
+  top: 12px;
+  right: -8px;
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  color: #1a1025;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 4px 0 0 4px;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+  letter-spacing: 0.5px;
+}
+
+/* Luxury gradient backgrounds */
+.gradient-hero {
+  background: linear-gradient(135deg, #581C87 0%, #6B21A8 30%, #A855F7 70%, #D4AF37 100%);
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #F5D061 50%, #D4AF37 100%);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% 100%;
+}

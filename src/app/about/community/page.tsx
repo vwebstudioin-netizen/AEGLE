@@ -1,0 +1,107 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHero } from "@/components/layout/PageHero";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Community Outreach",
+  description: "AEGLE Skin Care Clinic's community health programs, free screenings, outreach events, and partnerships.",
+};
+
+const programs = [
+  { title: "Free Health Screenings", description: "Monthly community health fairs offering blood pressure, glucose, cholesterol, and BMI screenings at no cost.", icon: "🩺" },
+  { title: "Mobile Health Clinic", description: "Our mobile unit brings primary care, vaccinations, and health education to underserved neighborhoods.", icon: "🚐" },
+  { title: "School Health Initiative", description: "Partnering with local schools for health education, dental screenings, and vision tests for students.", icon: "🏫" },
+  { title: "Mental Health Awareness", description: "Community workshops on stress management, depression screening, and substance abuse prevention.", icon: "🧠" },
+  { title: "Maternal & Child Health", description: "Prenatal education classes, breastfeeding support, and pediatric wellness programs for families.", icon: "👶" },
+  { title: "Senior Wellness Program", description: "Fall prevention, medication management, and social programs for our elderly community members.", icon: "🧓" },
+];
+
+const partnerships = [
+  "City Department of Public Health",
+  "United Way of Greater Metro",
+  "American Heart Association — Local Chapter",
+  "National Alliance on Mental Illness (NAMI)",
+  "Local School District Board of Education",
+  "Community Food Bank Coalition",
+  "Habitat for Humanity — Health Housing Initiative",
+  "State University School of Public Health",
+];
+
+const impactStats = [
+  { value: "50,000+", label: "Community members served annually" },
+  { value: "200+", label: "Free health screening events per year" },
+  { value: "30+", label: "Community partner organizations" },
+  { value: "$5M+", label: "Annual community benefit investment" },
+];
+
+export default function CommunityPage() {
+  return (
+    <>
+      <PageHero
+        title="Community Outreach"
+        subtitle="Improving the health of our entire community through programs, partnerships, and service."
+        breadcrumbs={[
+          { label: "About", href: "/about" },
+          { label: "Community" },
+        ]}
+      />
+
+      {/* Impact Stats */}
+      <section className="bg-primary/5 py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-center">
+            {impactStats.map((s) => (
+              <div key={s.label}>
+                <p className="text-3xl font-bold text-primary">{s.value}</p>
+                <p className="text-sm text-muted-foreground">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Programs */}
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-2xl font-bold mb-8">Our Programs</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {programs.map((p) => (
+            <Card key={p.title}>
+              <CardContent className="p-6">
+                <div className="text-3xl mb-3">{p.icon}</div>
+                <h3 className="font-semibold mb-2">{p.title}</h3>
+                <p className="text-sm text-muted-foreground">{p.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Partnerships */}
+      <section className="bg-muted/30 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-6">Community Partners</h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {partnerships.map((p) => (
+              <div key={p} className="rounded-xl border bg-card p-4 text-sm font-medium">{p}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="container mx-auto px-4 py-16 text-center">
+        <h2 className="text-2xl font-bold mb-4">Get Involved</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          Whether you want to volunteer, partner with us, or attend a community event, we welcome your participation in building a healthier community.
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link href="/careers/volunteer"><Button>Volunteer with Us</Button></Link>
+          <Link href="/giving"><Button variant="outline">Make a Donation</Button></Link>
+          <Link href="/contact"><Button variant="outline">Contact Community Health</Button></Link>
+        </div>
+      </section>
+    </>
+  );
+}

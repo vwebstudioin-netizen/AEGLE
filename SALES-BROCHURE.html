@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AEGLE — Premium Skin Care Clinic Website | VWebStudio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #1e293b; background: #fff; }
+    :root {
+      --primary: #6B21A8;
+      --primary-dark: #581C87;
+      --accent: #D4AF37;
+      --accent-light: #F5D061;
+      --light: #faf8fc;
+      --muted: #64748b;
+      --green: #22c55e;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar { background: #1a0a2e; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .topbar span { font-size: 13px; color: rgba(255,255,255,0.45); }
+    .topbar span strong { color: var(--accent); }
+    .topbar-links { display: flex; gap: 24px; }
+    .topbar-links a { font-size: 13px; color: rgba(255,255,255,0.65); text-decoration: none; }
+    .topbar-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero { background: linear-gradient(135deg, #6B21A8 0%, #2d0a4e 60%, #1a0530 100%); padding: 100px 40px 90px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 70% 30%, rgba(212,175,55,0.08) 0%, transparent 60%); }
+    .hero-badge { display: inline-block; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.35); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; margin-bottom: 28px; }
+    .hero h1 { font-size: clamp(30px, 5.5vw, 54px); font-weight: 800; color: #fff; line-height: 1.12; max-width: 860px; margin: 0 auto 22px; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { font-size: 18px; color: rgba(255,255,255,0.62); max-width: 680px; margin: 0 auto 44px; line-height: 1.75; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+    .btn-primary { background: var(--accent); color: var(--primary-dark); padding: 15px 34px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; display: inline-block; box-shadow: 0 4px 20px rgba(212,175,55,0.35); transition: transform 0.2s; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-outline { border: 2px solid rgba(255,255,255,0.28); color: #fff; padding: 15px 34px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; display: inline-block; transition: border-color 0.2s; }
+    .btn-outline:hover { border-color: var(--accent); }
+    .hero-stats { display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; }
+    .h-stat .num { font-size: 34px; font-weight: 900; color: var(--accent); line-height: 1; }
+    .h-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+    /* ── SECTION HELPERS ── */
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .s-title { font-size: 34px; font-weight: 800; color: var(--primary); margin-bottom: 12px; line-height: 1.2; }
+    .s-sub { font-size: 16px; color: var(--muted); margin-bottom: 40px; line-height: 1.7; max-width: 720px; }
+
+    /* ── PAIN POINTS ── */
+    .pain { background: #fef3f8; padding: 76px 40px; }
+    .pain-inner { max-width: 1000px; margin: 0 auto; }
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .pain-card { background: #fff; border-left: 4px solid var(--accent); padding: 24px 26px; border-radius: 0 14px 14px 0; box-shadow: 0 2px 14px rgba(0,0,0,0.04); }
+    .pain-card h3 { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .pain-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ── SOLUTION ── */
+    .solution { padding: 76px 40px 40px; background: #fff; text-align: center; }
+    .solution-inner { max-width: 780px; margin: 0 auto; }
+    .solution h2 { font-size: 38px; font-weight: 800; color: var(--primary); margin-bottom: 16px; line-height: 1.2; }
+    .solution p { font-size: 17px; color: var(--muted); line-height: 1.78; }
+
+    /* ── CHECKLIST ── */
+    .checklist-band { background: var(--light); padding: 48px 40px; }
+    .checklist-inner { max-width: 1000px; margin: 0 auto; }
+    .checklist-inner h3 { font-size: 22px; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 30px; }
+    .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .cl-item { background: #fff; border-radius: 10px; padding: 15px 18px; display: flex; align-items: center; gap: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+    .cl-icon { width: 36px; height: 36px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+    .cl-item span { font-size: 13px; font-weight: 600; color: #1e293b; }
+
+    /* ── FEATURES ── */
+    .features { padding: 36px 40px 80px; background: #fff; }
+    .features-inner { max-width: 1100px; margin: 0 auto; }
+    .features-title { text-align: center; margin-bottom: 64px; }
+    .features-title h2 { font-size: 34px; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+    .features-title p { font-size: 16px; color: var(--muted); max-width: 580px; margin: 0 auto; }
+    .feature-block { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 88px; }
+    .feature-block.reverse { direction: rtl; }
+    .feature-block.reverse > * { direction: ltr; }
+    .feature-img { background: var(--light); border-radius: 20px; padding: 40px; min-height: 290px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+    .feature-img::before { content: ''; position: absolute; bottom: -30px; right: -30px; width: 150px; height: 150px; background: rgba(107,33,168,0.05); border-radius: 50%; }
+    .feat-number { font-size: 88px; font-weight: 900; color: rgba(107,33,168,0.06); position: absolute; top: 8px; right: 20px; line-height: 1; }
+    .mock-card { background: #fff; border-radius: 12px; padding: 16px 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); margin-bottom: 12px; }
+    .mock-card h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+    .mock-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .mock-stat { display: flex; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+    .stat-pill { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .stat-green { background: #dcfce7; color: #16a34a; }
+    .stat-amber { background: #fef3c7; color: #b45309; }
+    .stat-purple { background: #f3e8ff; color: #7c3aed; }
+    .stat-gold { background: #fef9e7; color: #b8860b; }
+    .feature-text h3 { font-size: 26px; font-weight: 800; color: var(--primary); margin-bottom: 10px; line-height: 1.25; }
+    .feature-text .tagline { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 10px; }
+    .feature-text p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 22px; }
+    .benefit-list { list-style: none; }
+    .benefit-list li { font-size: 14px; color: #1e293b; padding: 9px 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: flex-start; gap: 10px; }
+    .benefit-list li:last-child { border-bottom: none; }
+    .check { color: var(--green); font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── PORTALS ── */
+    .portals { padding: 80px 40px; background: #fff; }
+    .portals-inner { max-width: 1060px; margin: 0 auto; }
+    .portals h2 { font-size: 34px; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 8px; }
+    .portals-sub { text-align: center; font-size: 16px; color: var(--muted); margin-bottom: 50px; }
+    .portals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+    .portal-card { border-radius: 18px; padding: 32px; position: relative; overflow: hidden; }
+    .portal-card.admin-card-p { background: linear-gradient(135deg, #6B21A8, #3b0764); color: #fff; }
+    .portal-card.client-card { background: var(--light); border: 2px solid #e9d8f5; color: var(--primary); }
+    .portal-card.public-card { background: linear-gradient(135deg, #b8860b, #856508); color: #fff; }
+    .portal-card.chatbot-card { background: linear-gradient(135deg, #064e3b, #043828); color: #fff; }
+    .portal-card .p-icon { font-size: 32px; margin-bottom: 16px; }
+    .portal-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .portal-card p { font-size: 13px; line-height: 1.7; opacity: 0.85; }
+    .portal-card .p-list { list-style: none; margin-top: 14px; }
+    .portal-card .p-list li { font-size: 12px; padding: 5px 0; display: flex; align-items: center; gap: 8px; }
+
+    /* ── TARGET ── */
+    .target { padding: 76px 40px; background: var(--light); }
+    .target-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .target h2 { font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 12px; }
+    .target p { font-size: 16px; color: var(--muted); margin-bottom: 36px; line-height: 1.7; }
+    .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; text-align: left; }
+    .target-card { background: #fff; border-radius: 14px; padding: 22px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .target-card .t-icon { font-size: 30px; margin-bottom: 12px; }
+    .target-card h3 { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+    .target-card p { font-size: 12px; color: var(--muted); line-height: 1.65; }
+
+    /* ── RESULTS ── */
+    .results { padding: 76px 40px; background: #fff; }
+    .results-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+    .results h2 { font-size: 34px; font-weight: 800; color: var(--primary); margin-bottom: 44px; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 48px; }
+    .result-card { background: var(--light); border-radius: 16px; padding: 30px 22px; }
+    .result-card .r-num { font-size: 38px; font-weight: 900; color: var(--primary); }
+    .result-card .r-lbl { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial { padding: 60px 40px; background: var(--light); border-top: 1px solid #f0e6f6; border-bottom: 1px solid #f0e6f6; }
+    .testimonial-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+    .testimonial blockquote { font-size: 20px; color: var(--primary); font-weight: 600; line-height: 1.6; font-style: italic; margin-bottom: 18px; }
+    .testimonial cite { font-size: 14px; color: var(--muted); font-style: normal; }
+
+    /* ── INCLUDES ── */
+    .includes { padding: 64px 40px; background: var(--light); }
+    .includes-inner { max-width: 800px; margin: 0 auto; }
+    .includes h2 { font-size: 28px; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 32px; }
+    .includes-list { list-style: none; columns: 2; gap: 24px; }
+    .includes-list li { font-size: 14px; padding: 8px 0; display: flex; align-items: center; gap: 10px; break-inside: avoid; }
+    .inc-check { color: var(--green); font-size: 16px; }
+
+    /* ── CTA ── */
+    .cta { background: linear-gradient(135deg, #6B21A8 0%, #2d0a4e 100%); padding: 88px 40px; text-align: center; }
+    .cta h2 { font-size: 40px; font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.15; }
+    .cta p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 600px; margin: 0 auto 40px; line-height: 1.75; }
+    .cta .btn-primary { font-size: 17px; padding: 18px 48px; }
+    .cta-note { margin-top: 22px; font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    /* ── FOOTER ── */
+    .footer { background: #0e0518; padding: 34px 40px; text-align: center; color: rgba(255,255,255,0.35); font-size: 13px; }
+    .footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .topbar, .hero, .pain, .solution, .checklist-band, .features, .portals, .target, .results, .testimonial, .includes, .cta { padding-left: 20px; padding-right: 20px; }
+      .feature-block, .feature-block.reverse { grid-template-columns: 1fr; direction: ltr; gap: 32px; }
+      .hero-stats { gap: 28px; }
+      .includes-list { columns: 1; }
+      .hero h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOP BAR ── -->
+  <div class="topbar">
+    <span>Prepared exclusively for <strong>AEGLE — Goddess of Radiant Health &amp; Beauty</strong></span>
+    <div class="topbar-links">
+      <a href="#features">What You Get</a>
+      <a href="#portals">How It Works</a>
+      <a href="#results">Results</a>
+      <a href="#cta">Get Started</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── HERO ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-badge">✨ Exclusive Proposal for AEGLE</div>
+    <h1>Your Clinic Deserves a Website as <span>Premium</span> as Your Treatments</h1>
+    <p>We're building AEGLE a stunning, luxury digital presence — complete with an intelligent chat assistant that turns website visitors into booked clients, 24 hours a day, 7 days a week.</p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-primary">🚀 Let's Get Started</a>
+      <a href="#features" class="btn-outline">See What's Inside ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="num">97+</div><div class="lbl">Treatment Pages</div></div>
+      <div class="h-stat"><div class="num">24/7</div><div class="lbl">AI Lead Capture</div></div>
+      <div class="h-stat"><div class="num">3</div><div class="lbl">Clinic Locations</div></div>
+      <div class="h-stat"><div class="num">₹0</div><div class="lbl">Monthly Hosting</div></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── PAIN POINTS ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="pain">
+    <div class="pain-inner">
+      <div class="section-label">Sound Familiar?</div>
+      <h2 class="s-title">The Challenges Every Growing Skin Clinic Faces</h2>
+      <p class="s-sub">These are the daily frustrations that cost you time, clients, and revenue — and exactly what we're solving for AEGLE.</p>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h3>❌ Invisible Online</h3>
+          <p>Clients search "best skin clinic in Bangalore" and find your competitors — because they have a professional website and you don't. Every day without one is lost business.</p>
+        </div>
+        <div class="pain-card">
+          <h3>❌ Lost Leads After Midnight</h3>
+          <p>70% of people browse clinics outside office hours. Without someone to talk to, they leave and never come back. You're losing enquiries while your team sleeps.</p>
+        </div>
+        <div class="pain-card">
+          <h3>❌ Phone Tag for Bookings</h3>
+          <p>Missed calls. WhatsApp chaos. Double bookings. No single system to handle appointment requests. Your front desk spends more time on the phone than serving clients.</p>
+        </div>
+        <div class="pain-card">
+          <h3>❌ No Way to Follow Up</h3>
+          <p>"Someone called last week about laser treatment…" — but nobody wrote down the number. Enquiries fall through the cracks with no tracking system.</p>
+        </div>
+        <div class="pain-card">
+          <h3>❌ Products Only Sold In-Clinic</h3>
+          <p>You recommend skin care products to every client, but they can't buy them online. That's a revenue stream you're leaving on the table.</p>
+        </div>
+        <div class="pain-card">
+          <h3>❌ No Idea What's Working</h3>
+          <p>Which treatments are most enquired about? How many leads became clients this month? Without data, you're growing on guesswork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── SOLUTION ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="solution">
+    <div class="solution-inner">
+      <div class="section-label">What We've Built for You</div>
+      <h2>One Beautiful Website.<br>Every Problem Solved.</h2>
+      <p>AEGLE doesn't just get a website — you get a complete client acquisition machine. A luxury online presence matched with a smart AI assistant that captures every single enquiry, a self-service portal for your clients, an online product shop, and a command centre for your team.</p>
+    </div>
+  </section>
+
+  <!-- ── CHECKLIST BAND ── -->
+  <section class="checklist-band">
+    <div class="checklist-inner">
+      <h3>Everything Inside Your AEGLE Website</h3>
+      <div class="checklist-grid">
+        <div class="cl-item"><div class="cl-icon">✨</div><span>AI Chat Assistant (Aura)</span></div>
+        <div class="cl-item"><div class="cl-icon">💜</div><span>97+ Treatment Pages</span></div>
+        <div class="cl-item"><div class="cl-icon">📅</div><span>Online Booking System</span></div>
+        <div class="cl-item"><div class="cl-icon">👩‍⚕️</div><span>Doctor Profiles &amp; Ratings</span></div>
+        <div class="cl-item"><div class="cl-icon">🛍️</div><span>Online Product Shop</span></div>
+        <div class="cl-item"><div class="cl-icon">👤</div><span>Client Self-Service Portal</span></div>
+        <div class="cl-item"><div class="cl-icon">📊</div><span>Admin Control Panel</span></div>
+        <div class="cl-item"><div class="cl-icon">📍</div><span>3 Clinic Location Pages</span></div>
+        <div class="cl-item"><div class="cl-icon">⭐</div><span>Client Reviews &amp; Ratings</span></div>
+        <div class="cl-item"><div class="cl-icon">📸</div><span>Before/After Gallery</span></div>
+        <div class="cl-item"><div class="cl-icon">💳</div><span>Online Payments</span></div>
+        <div class="cl-item"><div class="cl-icon">🎉</div><span>Promotions &amp; Offers System</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── FEATURES DEEP DIVE ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="features" id="features">
+    <div class="features-inner">
+      <div class="features-title">
+        <div class="section-label">What You Get</div>
+        <h2>Everything AEGLE Needs to Win Online</h2>
+        <p>Each feature designed around the real day-to-day needs of a premium skin care business.</p>
+      </div>
+
+      <!-- 1 — AI Chatbot -->
+      <div class="feature-block">
+        <div class="feature-img">
+          <div class="feat-number">01</div>
+          <div class="mock-card">
+            <h4>✨ "Hi! I'm Aura"</h4>
+            <p>"Welcome to AEGLE! I'm your personal skin care assistant. May I know your name so I can help you book a consultation?"</p>
+          </div>
+          <div class="mock-card">
+            <h4>📋 New Lead Captured</h4>
+            <p>Priya Sharma · 98765 43210<br>Interested in: Skin Treatment</p>
+            <div class="mock-stat">
+              <span class="stat-pill stat-green">✓ Saved</span>
+              <span class="stat-pill stat-purple">Ready to Call</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-text">
+          <div class="tagline">Never Miss a Lead Again</div>
+          <h3>Meet Aura — Your 24/7 AI Receptionist</h3>
+          <p>The moment someone visits your website — even at 2 AM — Aura greets them warmly, asks their name, finds out what treatment they're interested in, and collects their phone number. Every enquiry is instantly saved to your dashboard, ready for your team to call back the next morning.</p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> Greets every visitor with a warm, branded conversation</li>
+            <li><span class="check">✓</span> Collects name, phone number, and treatment interest</li>
+            <li><span class="check">✓</span> Shows quick buttons: Skin · Hair · Face · Laser · Body &amp; more</li>
+            <li><span class="check">✓</span> Confirms details before saving — no junk leads</li>
+            <li><span class="check">✓</span> Enquiry appears instantly on your team's dashboard</li>
+            <li><span class="check">✓</span> Costs ₹0/month — no third-party chat subscription needed</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2 — Enquiry Dashboard -->
+      <div class="feature-block reverse">
+        <div class="feature-img">
+          <div class="feat-number">02</div>
+          <div class="mock-card">
+            <h4>📊 Your Lead Pipeline</h4>
+            <p>Every enquiry from Aura — sorted, filtered, and ready for action</p>
+            <div class="mock-stat">
+              <span class="stat-pill stat-purple">12 New</span>
+              <span class="stat-pill stat-amber">8 Contacted</span>
+              <span class="stat-pill stat-green">6 Converted</span>
+            </div>
+          </div>
+          <div class="mock-card">
+            <h4>📞 One-Tap Follow-Up</h4>
+            <p>Call or WhatsApp any lead directly from the dashboard</p>
+          </div>
+        </div>
+        <div class="feature-text">
+          <div class="tagline">Your Team's Command Centre</div>
+          <h3>See Every Enquiry. Follow Up. Close the Deal.</h3>
+          <p>Every time Aura captures a lead, it lands in your enquiry dashboard. Your receptionist opens it in the morning, sees 8 new enquiries from last night, and starts calling. Name, number, what they want — all right there. One tap to call, one tap to WhatsApp.</p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> All chatbot enquiries in one clean table</li>
+            <li><span class="check">✓</span> One-tap Call or WhatsApp from each row</li>
+            <li><span class="check">✓</span> Track status: New → Contacted → Converted → Closed</li>
+            <li><span class="check">✓</span> Search by name, phone, or treatment interest</li>
+            <li><span class="check">✓</span> Know exactly how many leads your website brings in</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3 — Treatment Pages -->
+      <div class="feature-block">
+        <div class="feature-img">
+          <div class="feat-number">03</div>
+          <div class="mock-card">
+            <h4>💆 9 Treatment Categories</h4>
+            <p>Skin · Face · Facials · Hair · Body · Lasers · Plastic Surgery · Cosmetic Dermatology · Aesthetic</p>
+          </div>
+          <div class="mock-card">
+            <h4>✨ HydraFacial Deep Cleanse</h4>
+            <p>Multi-step facial for deep cleansing, exfoliation &amp; hydration</p>
+            <div class="mock-stat">
+              <span class="stat-pill stat-gold">FLAT 10% OFF</span>
+              <span class="stat-pill stat-purple">Book Now</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-text">
+          <div class="tagline">97+ Treatments Showcased</div>
+          <h3>A Dedicated Page for Every Treatment You Offer</h3>
+          <p>From HydraFacial to PRP Hair Therapy, Chemical Peels to Laser Resurfacing — every treatment gets its own beautiful page. When someone Googles "laser treatment Bangalore," they should find AEGLE, not your competitor.</p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> 97 treatments organised across 9 browsable categories</li>
+            <li><span class="check">✓</span> Easy mega-menu — clients find what they need in 2 clicks</li>
+            <li><span class="check">✓</span> "FLAT 10% OFF" promotional badges on featured treatments</li>
+            <li><span class="check">✓</span> Google-friendly pages that rank for every treatment name</li>
+            <li><span class="check">✓</span> Every page links to the right doctor and booking form</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4 — Appointment Booking -->
+      <div class="feature-block reverse">
+        <div class="feature-img">
+          <div class="feat-number">04</div>
+          <div class="mock-card">
+            <h4>📅 Book a Consultation</h4>
+            <p>Choose your doctor, pick a date, select your treatment</p>
+            <div class="mock-stat">
+              <span class="stat-pill stat-green">Confirmed</span>
+              <span class="stat-pill stat-amber">Pending</span>
+            </div>
+          </div>
+          <div class="mock-card">
+            <h4>📧 Instant Confirmation</h4>
+            <p>Client gets an email — your calendar gets updated</p>
+          </div>
+        </div>
+        <div class="feature-text">
+          <div class="tagline">Bookings While You Sleep</div>
+          <h3>Online Appointment Booking</h3>
+          <p>Clients pick Dr. Surekha or Dr. Nithya, choose a date and time, and book their consultation — all from their phone, any time of day. No calls needed. Your front desk just welcomes them when they arrive.</p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> Choose doctor, date, time, and treatment type</li>
+            <li><span class="check">✓</span> Automatic email confirmation to the client</li>
+            <li><span class="check">✓</span> Your team sees all bookings in one calendar view</li>
+            <li><span class="check">✓</span> Status tracking: Pending → Confirmed → Completed</li>
+            <li><span class="check">✓</span> Cuts front-desk phone time by over 50%</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5 — Product Shop -->
+      <div class="feature-block">
+        <div class="feature-img">
+          <div class="feat-number">05</div>
+          <div class="mock-card">
+            <h4>🛍️ AEGLE Beauty Shop</h4>
+            <p>Doctor-recommended skin care products your clients already trust</p>
+          </div>
+          <div class="mock-card">
+            <h4>💳 Easy Checkout</h4>
+            <p>Pay with UPI, credit card, debit card, net banking, or EMI</p>
+            <div class="mock-stat">
+              <span class="stat-pill stat-green">₹1,299 Paid</span>
+              <span class="stat-pill stat-amber">Shipping in 2 days</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-text">
+          <div class="tagline">Sell Beyond Your Clinic Walls</div>
+          <h3>Online Product Shop</h3>
+          <p>Your dermatologists already recommend products after every session. Now clients can browse and buy them online — from home, at midnight, whenever they run out. A whole new revenue stream that works while you sleep.</p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> Beautiful product pages with photos and descriptions</li>
+            <li><span class="check">✓</span> Simple cart and secure online payment</li>
+            <li><span class="check">✓</span> UPI, cards, net banking, EMI — every method supported</li>
+            <li><span class="check">✓</span> Clients can reorder from their personal account</li>
+            <li><span class="check">✓</span> You manage products from the admin panel</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 6 — Client Portal -->
+      <div class="feature-block reverse">
+        <div class="feature-img">
+          <div class="feat-number">06</div>
+          <div class="mock-card">
+            <h4>👤 My AEGLE Account</h4>
+            <p>Clients log in and see their complete skin care journey</p>
+          </div>
+          <div class="mock-card">
+            <h4>📊 Treatment Progress</h4>
+            <p>HydraFacial — 3 of 6 sessions done<br>PRP Hair — Next: March 20</p>
+            <div class="mock-stat">
+              <span class="stat-pill stat-green">On Track</span>
+              <span class="stat-pill stat-purple">3 sessions left</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-text">
+          <div class="tagline">Make Clients Feel Special</div>
+          <h3>Client Self-Service Portal</h3>
+          <p>When clients log in and see their treatment journey, upcoming sessions, and personalised suggestions — it makes them feel valued. That's how you turn one-time visitors into loyal, referring clients.</p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> Personal treatment journey dashboard</li>
+            <li><span class="check">✓</span> Upcoming and past appointments at a glance</li>
+            <li><span class="check">✓</span> Billing history and payment receipts</li>
+            <li><span class="check">✓</span> Secure messaging with the clinic</li>
+            <li><span class="check">✓</span> Simple login with email or Google</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 7 — Doctor Profiles -->
+      <div class="feature-block">
+        <div class="feature-img">
+          <div class="feat-number">07</div>
+          <div class="mock-card">
+            <h4>👩‍⚕️ Dr. Surekha</h4>
+            <p>Chief Dermatologist &amp; Founder<br>15 years experience · ⭐ 4.9 (856 reviews)<br>📞 8050507755</p>
+          </div>
+          <div class="mock-card">
+            <h4>👩‍⚕️ Dr. Nithya</h4>
+            <p>Senior Dermatologist &amp; Aesthetic Specialist<br>12 years experience · ⭐ 4.8 (642 reviews)<br>📞 9900298841</p>
+          </div>
+        </div>
+        <div class="feature-text">
+          <div class="tagline">Trust Starts With Your Doctors</div>
+          <h3>Doctor Profiles That Build Confidence</h3>
+          <p>Before choosing a clinic, clients want to know who's going to treat them. Each doctor gets a rich profile — photo, qualifications, years of experience, client ratings, and a direct "Book with this Doctor" button. It builds trust before they even walk in.</p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> Professional photo, credentials, and specialities</li>
+            <li><span class="check">✓</span> Star ratings and client review count</li>
+            <li><span class="check">✓</span> Direct phone and booking buttons</li>
+            <li><span class="check">✓</span> Linked to the treatments they perform</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 8 — Multi-Location -->
+      <div class="feature-block reverse">
+        <div class="feature-img">
+          <div class="feat-number">08</div>
+          <div class="mock-card">
+            <h4>📍 3 AEGLE Locations</h4>
+            <p>Koramangala (Flagship) · Indiranagar · Whitefield</p>
+          </div>
+          <div class="mock-card">
+            <h4>🗺️ Koramangala Flagship</h4>
+            <p>Full address · Hours · Parking · Amenities · Get Directions</p>
+            <div class="mock-stat">
+              <span class="stat-pill stat-purple">Flagship</span>
+              <span class="stat-pill stat-green">Open Now</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-text">
+          <div class="tagline">Ready for Multi-Chain Growth</div>
+          <h3>Every Clinic Gets Its Own Page</h3>
+          <p>Koramangala, Indiranagar, Whitefield — each clinic has a dedicated page with address, hours, parking, amenities, and map directions. When you open clinic #4, we just add another page. Your website grows with you.</p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> Dedicated page for all 3 Bangalore clinics</li>
+            <li><span class="check">✓</span> Timings, amenities, and parking listed clearly</li>
+            <li><span class="check">✓</span> Google Maps directions for each branch</li>
+            <li><span class="check">✓</span> Easily expandable when you open new locations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── 4 PORTALS ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="portals" id="portals">
+    <div class="portals-inner">
+      <div class="section-label">How It All Connects</div>
+      <h2>4 Experiences, One Website</h2>
+      <p class="portals-sub">Different people use your website differently. Each one gets exactly what they need.</p>
+      <div class="portals-grid">
+        <div class="portal-card admin-card-p">
+          <div class="p-icon">🛡️</div>
+          <h3>Your Control Panel</h3>
+          <p>Your team manages everything from one dashboard — no tech skills needed.</p>
+          <ul class="p-list">
+            <li>✦ View &amp; follow up on all enquiries</li>
+            <li>✦ Manage treatments &amp; doctor profiles</li>
+            <li>✦ Handle appointments &amp; bookings</li>
+            <li>✦ Publish blog posts &amp; updates</li>
+            <li>✦ See performance at a glance</li>
+          </ul>
+        </div>
+        <div class="portal-card chatbot-card">
+          <div class="p-icon">✨</div>
+          <h3>Aura (AI Assistant)</h3>
+          <p>Your tireless digital receptionist — works 24/7, never takes a day off.</p>
+          <ul class="p-list">
+            <li>✦ Greets every single website visitor</li>
+            <li>✦ Asks name, number &amp; interest</li>
+            <li>✦ Offers treatment suggestions</li>
+            <li>✦ Saves leads for your team</li>
+            <li>✦ No monthly cost — ever</li>
+          </ul>
+        </div>
+        <div class="portal-card client-card">
+          <div class="p-icon">👤</div>
+          <h3>Client Account</h3>
+          <p>Where your clients manage their experience — building loyalty every visit.</p>
+          <ul class="p-list">
+            <li>✦ See their treatment journey</li>
+            <li>✦ Book &amp; manage appointments</li>
+            <li>✦ View bills &amp; payment history</li>
+            <li>✦ Message the clinic securely</li>
+            <li>✦ Reorder favourite products</li>
+          </ul>
+        </div>
+        <div class="portal-card public-card">
+          <div class="p-icon">🌐</div>
+          <h3>Public Website</h3>
+          <p>What the world sees: a luxury showcase of the AEGLE brand.</p>
+          <ul class="p-list">
+            <li>✦ Stunning treatment showcase</li>
+            <li>✦ Expert doctor profiles</li>
+            <li>✦ Beauty product shop</li>
+            <li>✦ Blog, tips &amp; client stories</li>
+            <li>✦ Before/after gallery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── TARGET AUDIENCE ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="target">
+    <div class="target-inner">
+      <div class="section-label">Built Specifically For</div>
+      <h2>Designed for Premium Clinics Like AEGLE</h2>
+      <p>This isn't a generic website template. It's built for skin care businesses that demand the best — and need their digital presence to match.</p>
+      <div class="target-grid">
+        <div class="target-card">
+          <div class="t-icon">💜</div>
+          <h3>Multi-Branch Skin Clinics</h3>
+          <p>Growing chains with 2–10+ locations across a city. Need one website that represents all branches beautifully.</p>
+        </div>
+        <div class="target-card">
+          <div class="t-icon">👩‍⚕️</div>
+          <h3>Dermatology Practices</h3>
+          <p>Board-certified dermatologists offering cosmetic procedures, laser treatments, and clinical skin care.</p>
+        </div>
+        <div class="target-card">
+          <div class="t-icon">💆</div>
+          <h3>Aesthetic &amp; Beauty Clinics</h3>
+          <p>High-end clinics offering facials, anti-aging, body contouring, and luxury beauty services.</p>
+        </div>
+        <div class="target-card">
+          <div class="t-icon">🛍️</div>
+          <h3>Clinics Selling Products</h3>
+          <p>Practices that recommend skin care products after each session and want to sell them online too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── RESULTS ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="results" id="results">
+    <div class="results-inner">
+      <div class="section-label">What You Can Expect</div>
+      <h2>The Impact of Going Premium Online</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="r-num">24/7</div>
+          <div class="r-lbl">Lead Capture While You Sleep</div>
+        </div>
+        <div class="result-card">
+          <div class="r-num">3–5×</div>
+          <div class="r-lbl">More Consultation Enquiries</div>
+        </div>
+        <div class="result-card">
+          <div class="r-num">97+</div>
+          <div class="r-lbl">Pages Ranked on Google</div>
+        </div>
+        <div class="result-card">
+          <div class="r-num">₹0</div>
+          <div class="r-lbl">Monthly Hosting &amp; Chat Costs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIAL / QUOTE ── -->
+  <section class="testimonial">
+    <div class="testimonial-inner">
+      <div class="section-label">The Vision</div>
+      <blockquote>"Every person who searches for skin care in Bangalore should land on AEGLE — and leave with a booked consultation, not a competitor's number."</blockquote>
+      <cite>— The goal behind everything we've built</cite>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── WHAT'S INCLUDED ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="includes" id="includes">
+    <div class="includes-inner">
+      <div class="section-label">Complete Package</div>
+      <h2>Everything Included — Nothing Extra to Buy</h2>
+      <ul class="includes-list">
+        <li><span class="inc-check">✅</span> AI Chat Assistant "Aura" (24/7 lead capture)</li>
+        <li><span class="inc-check">✅</span> Enquiry Dashboard for your team</li>
+        <li><span class="inc-check">✅</span> Deep Purple &amp; Gold luxury design</li>
+        <li><span class="inc-check">✅</span> 97+ treatment pages across 9 categories</li>
+        <li><span class="inc-check">✅</span> Doctor profiles (Dr. Surekha &amp; Dr. Nithya)</li>
+        <li><span class="inc-check">✅</span> Online appointment booking system</li>
+        <li><span class="inc-check">✅</span> Client self-service portal</li>
+        <li><span class="inc-check">✅</span> Online product shop with payments</li>
+        <li><span class="inc-check">✅</span> Admin control panel (no tech skills needed)</li>
+        <li><span class="inc-check">✅</span> 3 clinic location pages (Bangalore)</li>
+        <li><span class="inc-check">✅</span> Blog &amp; skin care tips section</li>
+        <li><span class="inc-check">✅</span> Client reviews &amp; star ratings</li>
+        <li><span class="inc-check">✅</span> Before/After gallery</li>
+        <li><span class="inc-check">✅</span> Promotions &amp; offers system</li>
+        <li><span class="inc-check">✅</span> Works perfectly on mobile, tablet &amp; desktop</li>
+        <li><span class="inc-check">✅</span> Google-optimised for search rankings</li>
+        <li><span class="inc-check">✅</span> Dark mode for modern look</li>
+        <li><span class="inc-check">✅</span> Newsletter subscription system</li>
+        <li><span class="inc-check">✅</span> ₹0/month hosting — free forever</li>
+        <li><span class="inc-check">✅</span> Full ownership — it's your website</li>
+        <li><span class="inc-check">✅</span> Complete documentation included</li>
+        <li><span class="inc-check">✅</span> Ready to go live in under 2 weeks</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- ── CTA ── -->
+  <!-- ══════════════════════════════════════════ -->
+  <section class="cta" id="cta">
+    <h2>Ready to Take AEGLE Online?</h2>
+    <p>Your premium website is built and waiting. An AI assistant that never sleeps, 97+ treatment pages, online bookings, a product shop — everything ready to start capturing clients across your 3 clinics.</p>
+    <a href="mailto:info@aegleclinic.com?subject=AEGLE Website — Let's Go Live" class="btn-primary">🚀 Let's Go Live — Contact Us</a>
+    <p class="cta-note">No monthly fees · ₹0 hosting · Full website ownership · Live in under 2 weeks</p>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <p>Crafted with 💜 by <a href="#">VWebStudio</a> &nbsp;·&nbsp; AEGLE — Goddess of Radiant Health &amp; Beauty &nbsp;·&nbsp; © 2026</p>
+  </div>
+
+</body>
+</html>
